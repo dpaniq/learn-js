@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-
 
 console.log(typeof ([ ] + false), [ ] + false);   // Строка        | false
 console.log(typeof (false - null), false - null); // Объект Number | 0
@@ -43,13 +40,4 @@ console.log(typeof (+"Infinity"), +"Infinity", 123 + +'infinity'); // number, in
 console.log("ёжик" > "яблоко"); // true
 
 console.log(0 || "" || 2 || undefined || true || falsе) // 2
-=======
-alert(2*2);
-alert(2*2);
-asdasd
->>>>>>> parent of e569735... try
-=======
-alert(2*2);
-alert(2*2);
-asdasd
->>>>>>> parent of e569735... try
+
