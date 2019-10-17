@@ -50,8 +50,22 @@
 
 
 
-Что такое прототип (prototypes?	
+Что такое прототип (prototypes?)
 
+var speak = function(saywhat) {  <---- простая функция где-то в scope
+	console.log(saywhat)
+}
+
+let Dog = function() {  <---- создаем конструктор
+	let name, breed'
+}
+
+Dog.prototype.speak = speak; <---- насдуем функцию speak в объект Dog
+
+firstDog = new Dog
+firstDog.speak('woof')
+console.dir(firstDog)
+--------------------------------------------------------------------------------
 
 `В JS можно обойтись без классов, поскольку можно наследоваться от другого объекта.
 
@@ -127,3 +141,5 @@ x instanceof y       //наследует ли что-то x от y?
 
 
 Функциональное наследование.
+ 
+*/

@@ -22,7 +22,10 @@
 
     .split('разделитель') - разбить строку по разделителю 
     
-    
+    .startsWith()
+    .endsWith()
+    .includes()
+    .repeat()
 */
 
 
