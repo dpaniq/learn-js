@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- добавим стили mocha для отображения результатов -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.css">
+    <!-- добавляем сам фреймворк mocha -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.js"></script>
+    <script>
+        // включаем режим тестирования в стиле BDD
+        mocha.setup('bdd');
+    </script>
+    <!-- добавим chai -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.js"></script>
+    <script>
+        // chai предоставляет большое количество функций. Объявим assert глобально
+        let assert = chai.assert;
+    </script>
+
+    <style>
+        #homework-container {
+            font-family: Geneva, Arial, Helvetica, sans-serif;
+        }
+
+        #homework-container input {
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            padding: 5px;
+            margin: 5px 0;
+        }
+
+        #homework-container table {
+            width: 100%;
+        }
+
+        #homework-container table td,
+        #homework-container table th {
+            padding: 5px;
+            text-align: left;
+        }
+
+        #homework-container tbody tr:nth-child(odd) {
+            background: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="homework-container">
+
+        <div id="filter-block">
+            Поиск cookie: <input type="text" id="filter-name-input" placeholder="имя cookie">
+        </div>
+        <hr>
+        <div id="add-block">
+            Добавить cookie:<br>
+            <input type="text" id="add-name-input" placeholder="имя cookie"><br>
+            <input type="text" id="add-value-input" placeholder="значение cookie"><br>
+            <button id="add-button">добавить cookie</button>
+        </div>
+        <hr>
+        <div id="list-block">
+            Доступные cookie:
+            <table id="list-table">
+                <thead>
+                    <tr>
+                        <th>имя</th>
+                        <th>значение</th>
+                        <th>удалить</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- tr добавлять сюда -->
+                   
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+
+
+    <script src="Implementation.js"></script>
+
+    <!-- скрипт со спецификацией (describe, it...) -->
+    <script src="Describer.js"></script>
+
+    <!-- элемент с id="mocha" будет содержать результаты тестов -->
+    <div id="mocha"></div>
+
+    <!-- запускаем тесты! -->
+    <script>
+        mocha.run();
+    </script>
+</body>
+
+</html>

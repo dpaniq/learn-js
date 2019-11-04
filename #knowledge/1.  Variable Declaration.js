@@ -17,6 +17,10 @@
             third  = 'smth3';
     2.4.
         let first = second = third = 2 + 2; ---> first = 4, second = 4, third = 4
+    2.5. 
+        Array Destructurization
+        let [first, , ...third] = [1,2,3,4,5,6,6,7]
+
 3. Что служит для объявления переменной?
     Три ключевых слова:
         var nameVariable 
@@ -32,3 +36,10 @@
         4.3.4. Объявления (инициализация) переменных var производится в начале исполнения функции (или скрипта для глобальных переменных).                  | - 
 
 */
+
+
+
+let nightmars = 2
+let nightmars = 3
+console.log('asdasda', nightmars)
+let nightmars = 4

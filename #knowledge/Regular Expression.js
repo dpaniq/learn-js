@@ -56,3 +56,5 @@
 	"bogdan gromov".replace(/(\w+)\s(\w+)/, "$2, $1 is good!")
 	"bogdan gromov".replace(/(\w+)\s(\w+)/, function) - вызов функции
 	String.split - Разбиение строки на массив подстрок - возвращает массив
+
+	*/
