@@ -2,6 +2,7 @@
 
 import {detailTabs} from './detailtab.js'
 import {createElement} from './createElement.js'
+import {Calendar} from './calendar.js'
 
 const container = document.querySelector('.container')
 const addTaskButton = document.querySelector('.taskAdder')
@@ -12,21 +13,15 @@ const deleteBlockList = document.querySelector('.deleteBlockList')
 // const recentBlock = document.querySelector('.recentBlock')
 // const reasonBlock = document.querySelector('.reasonBlock')
 
+// START APPLICATION
 // LocalVariable to LocalStorage
 let tasks = JSON.parse(localStorage.getItem('taskList')) || []
-
-
-
 showTaskList()
 
 // EVENTS MODULE
 addTaskButton.addEventListener('submit', addTask)
-taskContainer.addEventListener('click', removeTask)
-taskContainer.addEventListener('click', toggleTask)
-
-deleteBlockList.addEventListener('click', plusTaskFromDeletedBlock)
-deleteBlockList.addEventListener('click', minusTaskFromDeletedBlock)
-deleteBlockList.addEventListener('click', infoBlockFromDeletedBlock)
+taskContainer.addEventListener('click', removeNtoggle)
+deleteBlockList.addEventListener('click', MinusPlusInfoBlock)
 
 buttonAdderAddition.addEventListener('click', (event) => {
     console.log(taskAddition)
@@ -57,7 +52,7 @@ function showTaskList() {
         if (element.deleted) {
             const plusButton = createElement('button', 'plusButton', '+')
             const infoButton = createElement('button', 'infoButton', 'i')
-            const tab = detailTabs(element)
+            let tab = detailTabs(element)
 
             div.appendChild(plusButton)
             div.appendChild(infoButton)
@@ -71,7 +66,6 @@ function showTaskList() {
     })
 }
 
-// 67 50 35
 function addTask(event) {
     event.preventDefault()
     const name = this.querySelector('[name=task]').value
@@ -81,15 +75,16 @@ function addTask(event) {
         description: '',
         done: false,
         deleted: false,
+        category: '',
         time: {
             start: new Date(),
             finish: 0,
             duration: 0
-        },
+        }
 
-        progressBar: function () {}
+        
+
     }
-
 
     if (taskAddition.className == 'taskAddition') {
         const description = this.querySelector('[name=description]').value
@@ -107,83 +102,41 @@ function addTask(event) {
     this.reset() //  is used to reset all the value of form elements
 }
 
-
-function removeTask(event) {
-    const remove = event.target
-    if (remove.tagName === 'BUTTON' && remove != remove.currentTarget) {
-        
-        const changeDoneProporty = remove.previousSibling.dataset.number
+function removeNtoggle(event) {
+    const et = event.target
+    if (et.tagName === 'BUTTON' && et != et.currentTarget) {
+        const changeDoneProporty = et.previousSibling.dataset.number
         tasks[changeDoneProporty].deleted = !tasks[changeDoneProporty].deleted
-        
-        saveToLocalStorage()
-        showTaskList()
-    }
-}
-
-function toggleTask(event) {
-    const toggle = event.target
-    if (toggle.tagName !== 'BUTTON' && toggle != event.currentTarget) {
-        const changeDoneProporty = toggle.dataset.number
+    
+    } else if (et.tagName !== 'BUTTON' && et != et.currentTarget) {
+        const changeDoneProporty = et.dataset.number
         tasks[changeDoneProporty].done = !tasks[changeDoneProporty].done
-        
-        event.target.classList.toggle('done')
-        saveToLocalStorage()
-    }
+    }        
+    saveToLocalStorage()
+    showTaskList()
 }
-
 
 function saveToLocalStorage() {
     localStorage.setItem('taskList', JSON.stringify(tasks))
+    showTaskList() // Reload Blocks
 }
 
 
 // Container
 
 
-// deleteBlock
-function minusTaskFromDeletedBlock () {
-    const minus = event.target
-    if (minus.tagName === 'BUTTON' && minus.className === 'minusButton') {
-        console.log('minus', minus, minus.previousSibling)
-        const changeDoneProporty = minus.previousSibling.dataset.number
-        tasks.splice(changeDoneProporty, 1)
+// deleteBlock -----------------------------------------------------------------
+function MinusPlusInfoBlock (event) {
+    const et = event.target
+    if (et.tagName === 'BUTTON' && et.className === 'minusButton') {
+        tasks.splice(et.previousSibling.dataset.number, 1)
         saveToLocalStorage()
-        showTaskList()
-    }
-    
-}
+        
+    } else if (et.tagName === 'BUTTON' && et.className === 'plusButton') {
+        tasks[et.previousSibling.previousSibling.dataset.number].deleted = false
+        saveToLocalStorage()
 
-function plusTaskFromDeletedBlock (event) {
-    const plus = event.target
-    if (plus.tagName === 'BUTTON' && plus.className === 'plusButton') {
-        const changeDoneProporty = plus.previousSibling.previousSibling.dataset.number
-        tasks[changeDoneProporty].deleted = false
-        saveToLocalStorage()
-        showTaskList()
+    } else if (et.tagName === 'BUTTON' && et.className === 'infoButton') {
+        et.parentElement.firstChild.lastChild.classList.toggle('hide')
     }
 }
-
- function infoBlockFromDeletedBlock(event) {
-    const info = event.target
-    if (info.tagName === 'BUTTON' && info.className === 'infoButton') {
-        const wh = info.parentElement.firstChild.lastChild
-        wh.classList.toggle('hide')
-        // tasks[changeDoneProporty].deleted = false
-        console.log(info, event.currentTarget, wh)
-    }
- }
-
-
- 
-function msToTime(duration) {
-    var milliseconds = parseInt((duration % 1000) / 100),
-      seconds = parseInt((duration / 1000) % 60),
-      minutes = parseInt((duration / (1000 * 60)) % 60),
-      hours = parseInt((duration / (1000 * 60 * 60)) % 24);
-  
-    hours = (hours < 10) ? "0" + hours : hours;
-    minutes = (minutes < 10) ? "0" + minutes : minutes;
-    seconds = (seconds < 10) ? "0" + seconds : seconds;
-  
-    return hours + ":" + minutes + ":" + seconds + "." + milliseconds;
-  }

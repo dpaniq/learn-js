@@ -40,14 +40,14 @@ function detailTabs(task){
 
             let progressbarline = 300 / ba // width of detailtab (temp is 300)
 
-            console.group('S')
-            console.log('a', a.getTime())
-            console.log('b', b.getTime())
-            console.log('n', c.getTime())
-            console.log('raznica b-a', ba)
-            console.log('raznica n-a', na)
+            // console.group('S')
+            // console.log('a', a.getTime())
+            // console.log('b', b.getTime())
+            // console.log('n', c.getTime())
+            // console.log('raznica b-a', ba)
+            // console.log('raznica n-a', na)
 
-            console.groupEnd('S')
+            // console.groupEnd('S')
             
             
             

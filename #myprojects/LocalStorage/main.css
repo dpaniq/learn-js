@@ -97,3 +97,45 @@ label {
 .detailTab.hide {
     display: none;
 }
+
+
+
+
+
+/* Calendar */
+#calendar {
+    width: 100%;
+    font: monospace;
+    line-height: 8.2em;
+    font-size: 15px;
+    text-align: center;
+    
+}
+
+#calendar td:hover {
+    color: whitesmoke;
+    background: rgb(224, 85, 85);
+}
+
+#calendar thead tr:last-child {
+    font-size: xx-large;
+    color: rgb(85, 85, 85);
+}
+#calendar thead tr:nth-child(1) td:nth-child(2) {
+    color: rgb(50, 50, 50);
+}
+#calendar thead tr:nth-child(1) td:nth-child(1):hover, #calendar thead tr:nth-child(1) td:nth-child(3):hover {
+    cursor: pointer;
+}
+#calendar tbody td {
+    color: rgb(44, 86, 122);
+}
+#calendar tbody td:nth-child(n+6), #calendar .holiday {
+    color: rgb(231, 140, 92);
+}
+#calendar tbody td.today {
+    background: rgb(220, 0, 0);
+    color: #fff;
+}
+
+/* Calendar End */
