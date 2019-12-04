@@ -1,0 +1,99 @@
+
+ol {
+    margin: auto;
+    text-align: center;
+    width: fit-content;
+}
+
+
+body {
+    
+    margin-top: 20px;
+    text-align: center;
+    justify-content: center;
+    font-style: normal;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
+}
+
+.TaskContainer {
+    text-align: center;
+    width: 400px;
+}
+.done {
+    margin: 3px;
+    color: green;
+    text-decoration: line-through;
+}
+
+.blocks{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.deleteBlock, .recentBlock, .noticeBlock {
+    color: #123321;
+    min-width: 30%;
+    
+    
+}
+
+.main {
+    margin:10px 10px 10px 10px;
+    
+}
+
+
+
+.taskElements {
+    margin:5px;
+    display: flex;
+}
+
+/* .taskElements:hover {
+    
+} */
+
+
+.minusButton, .plusButton, .infoButton, .taskAdder input, fieldset, textarea{
+    padding: 5px;
+    margin: 0 0 0 5px;
+    background-color: unset;
+    border-radius: 10px;
+    border-style: dotted;
+}
+
+
+.taskAddition {
+    margin: 20px auto;
+    display:flex;
+    text-align: center;
+    flex-direction: column;
+    width: 350px;
+}
+
+.taskAddition.hide {
+    background-color: teal;
+    display: none;
+}
+
+textarea[name=description] {
+    padding: 20px; 
+    resize: none;
+
+}
+
+label {
+    margin:10px;
+}
+
+.detailTab {
+    width: inherit;
+    font-size: x-small;
+}
+
+.detailTab.hide {
+    display: none;
+}

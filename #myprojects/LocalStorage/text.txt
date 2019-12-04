@@ -1,0 +1,21 @@
+data-number - atributte
+
+
+Detail panel
+    Name: NAMENAMENAME
+    Description: NAME NAME NAME NAME NAME
+    Status: Not done | Done | Wait for time (Отложить)
+
+    Created:
+        FullDate: Mon Dec 02 2019 15:32:19 GMT-0600 (Центральная Америка, стандартное время)
+
+
+    Progress bar:
+        Date Start
+        Date done
+
+
+        Formula - count of days / past days
+        10 / 3
+        [|||       ]
+

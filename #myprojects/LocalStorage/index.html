@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Local Storage Exercise</title>
+    <link rel="stylesheet" href="main.css">
+    </link>
+</head>
+
+<body>
+    <form class="taskAdder">
+        <input type="text" name="task" placeholder="New Task Item" required>
+        
+        <input type="button" name="taskAdderAddition"  value="Addition">
+        <div class="taskAddition hide">
+            <label for="description">Description:</label>
+                <textarea name="description" name="description" placeholder="Describe Your Task"></textarea>
+            <label for="timeStart">Start to:</label>
+                <input type="datetime-local" name="timeStart">
+            <label for="timeFinish">Finish to:</label>
+                <input type="datetime-local" name="timeFinish">
+            <label for="reset">Reset fields:</label>
+                <input type="reset">
+
+
+        </div>
+        <input type="submit" value="+Add">
+        
+    </form>
+
+    <fieldset class="main">
+        <legend>mainContaier</legend>
+        <div class="container">
+            <ol class="tasksContainer"></ol>
+        </div>
+    </fieldset>
+    
+
+    <div class="blocks">
+         <div class="deleteBlock">
+            <fieldset>
+                <legend>deletedBlock:
+                </legend>
+                <div class="deleteBlockList"></div>
+            </fieldset>
+        </div>
+        <div class="recentBlock">
+            <fieldset>
+                <legend>recentBlock:</legend>
+            </fieldset>
+        </div>
+        <div class="noticeBlock">
+            <fieldset>
+                <legend>noticeBlock:</legend>
+            </fieldset>
+        </div>
+    </div>
+    <script type="module" src="main.js"></script>
+</body>
+
+</html>
