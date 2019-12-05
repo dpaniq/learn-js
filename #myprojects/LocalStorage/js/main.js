@@ -1,8 +1,8 @@
 'use strict'
 
-import {detailTabs} from './detailtab.js'
-import {createElement} from './createElement.js'
-import {Calendar} from './calendar.js'
+import {detailTabs} from '../js/detailtab.js'
+import {Calendar} from '../js/calendar.js'
+import {createNewElement} from '../js/create/createElement.js'
 
 const container = document.querySelector('.container')
 const addTaskButton = document.querySelector('.taskAdder')
@@ -35,8 +35,8 @@ function showTaskList() {
     const tasksFromLocalStorage = JSON.parse(localStorage.getItem('taskList')) || []
     tasksFromLocalStorage.forEach((element, index) => {
         
-        const div = createElement('div', 'taskElements', '')
-        const li = createElement('li', '', element.name)
+        const div = createNewElement('div', 'taskElements', '')
+        const li = createNewElement('li', '', element.name)
 
         li.dataset.number = index
         
@@ -44,14 +44,14 @@ function showTaskList() {
             li.classList.add('done')
         }
 
-        const minusButton = createElement('button', 'minusButton', '-')
+        const minusButton = createNewElement('button', 'minusButton', '-')
 
         div.appendChild(li)
         div.appendChild(minusButton)
         
         if (element.deleted) {
-            const plusButton = createElement('button', 'plusButton', '+')
-            const infoButton = createElement('button', 'infoButton', 'i')
+            const plusButton = createNewElement('button', 'plusButton', '+')
+            const infoButton = createNewElement('button', 'infoButton', 'i')
             let tab = detailTabs(element)
 
             div.appendChild(plusButton)
@@ -81,9 +81,6 @@ function addTask(event) {
             finish: 0,
             duration: 0
         }
-
-        
-
     }
 
     if (taskAddition.className == 'taskAddition') {
@@ -113,7 +110,6 @@ function removeNtoggle(event) {
         tasks[changeDoneProporty].done = !tasks[changeDoneProporty].done
     }        
     saveToLocalStorage()
-    showTaskList()
 }
 
 function saveToLocalStorage() {
@@ -139,4 +135,14 @@ function MinusPlusInfoBlock (event) {
     } else if (et.tagName === 'BUTTON' && et.className === 'infoButton') {
         et.parentElement.firstChild.lastChild.classList.toggle('hide')
     }
+}
+
+
+document.querySelector('#calendar').onclick = function (event) {
+    console.log(event.target, 'попался:)')
+    event.target.textContent = event.target.textContent + ' CHECK'
+
+    let x = document.createElement('div')
+    x.className = 'testtest'
+    document.body.appendChild(x)
 }

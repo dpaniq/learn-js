@@ -112,9 +112,22 @@ label {
     
 }
 
-#calendar td:hover {
+#calendar td{
+    width: 14.3%;
+}
+
+#calendar td:hover:nth-child(odd) {
     color: whitesmoke;
     background: rgb(224, 85, 85);
+    transition: 0.2s;
+    transition-delay: 0.25s;
+}
+
+#calendar td:hover:nth-child(even) {
+    color: whitesmoke;
+    background: rgb(151, 66, 66);
+    transition: 0.2s;
+    transition-delay: 0.25s;
 }
 
 #calendar thead tr:last-child {
@@ -138,4 +151,19 @@ label {
     color: #fff;
 }
 
-/* Calendar End */
+/* Calendar End ============================*/
+
+/* AddTaskPanel */
+.addTaskPanel {
+
+    width: 500px;
+    height: 500px;
+    background-color: tomato;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+/* AddTaskPanel  End ============================*/
