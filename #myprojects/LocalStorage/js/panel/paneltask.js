@@ -1,20 +1,21 @@
 import {
     createOne,
-    createNewElement} from '../js/create/createNewElement.js'
+    createNewElement} from '../create/createNewElement.js'
 
-function PanelFastTask(selector) {
+
+function PanelFastTask() {
     return createOne ([
         // tag / className / textContent / [attr1, attr2...]
-        createNewElement('div', 'PanelFastTask'),
+        createNewElement('div', 'panelFastTask'),
         createNewElement('input', '', '', [['name', 'task'], ['placeholder', 'New Task Item']]),
-        createNewElement('input', 'pushFastTask', 'Add task', [['type', 'submit']])
+        createNewElement('input', 'pushFastTask', '', [['type', 'submit'], ['value', 'Add task']])
     ])
 }
 
-function PanelLongTask(selector) {
+function PanelLongTask() {
     return createOne ([
         // tag / className / textContent / [attr1, attr2...]
-        createNewElement('div', 'PanelLongTask'),
+        createNewElement('div', 'panelLongTask'),
 
         createNewElement('label', '', 'Description:', [['for', 'description']]),
         createNewElement('textarea', '', '', [['name', 'description'], ['placeholder', 'Describe Your Task']]),
@@ -28,7 +29,7 @@ function PanelLongTask(selector) {
         createNewElement('label', '', 'Reset fields:', [['for', 'reset']]),
         createNewElement('input', '', '', [['type', 'reset']]),
 
-        createNewElement('input', 'pushLongTask', 'Add task', [['type', 'submit']])
+        createNewElement('input', 'pushLongTask', '', [['type', 'submit'], ['value', 'Add task']])
     ])
 }
 

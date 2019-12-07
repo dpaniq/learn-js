@@ -4,54 +4,30 @@
 <head>
     <title>Local Storage Exercise</title>
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/task.css">
+    <link rel="stylesheet" href="./css/calendar.css">
     </link>
 </head>
 
 <body>
-    <form class="taskAdder">
-        <input type="text" name="task" placeholder="New Task Item" required>
+    <form class="formShort hide">
+        <label for="task">Task</label>
+        <input type="text" name="task_name" placeholder="New Task Item" required>
+        <input type="button" name="task_plus" value="Addition"><br>
 
-        <input type="button" name="taskAdderAddition" value="Addition">
-        <div class="taskAddition hide">
+        <div class="formLong hide">
             <label for="description">Description:</label>
-            <textarea name="description" placeholder="Describe Your Task"></textarea>
+            <textarea name="task_description" placeholder="Describe Your Task"></textarea><br>
             <label for="timeStart">Start to:</label>
-            <input type="datetime-local" name="timeStart">
+            <input type="datetime-local" name="task_timeStart"><br>
             <label for="timeFinish">Finish to:</label>
-            <input type="datetime-local" name="timeFinish">
-            <label for="reset">Reset fields:</label>
-            <input type="reset">
-        </div>
-        <input type="submit" value="+Add">
+            <input type="datetime-local" name="task_timeFinish"><br>
+            <input type="reset" value='&#8635;'>
+        </div><br>
+
+        <input type="submit" value="Add">
+        <button class="closeTaskAdderBtn hide">&#9932;</button>
     </form>
-
-    <fieldset class="main">
-        <legend>mainContaier</legend>
-        <div class="container">
-            <ol class="tasksContainer"></ol>
-        </div>
-    </fieldset>
-
-
-    <div class="blocks">
-        <div class="deleteBlock">
-            <fieldset>
-                <legend>deletedBlock:
-                </legend>
-                <div class="deleteBlockList"></div>
-            </fieldset>
-        </div>
-        <div class="recentBlock">
-            <fieldset>
-                <legend>recentBlock:</legend>
-            </fieldset>
-        </div>
-        <div class="noticeBlock">
-            <fieldset>
-                <legend>noticeBlock:</legend>
-            </fieldset>
-        </div>
-    </div>
 
     <table id="calendar">
         <thead>
@@ -60,21 +36,15 @@
                 <td colspan="5"></td>
                 <td>›</td>
             </tr>
-        </thead>
             <tr>
-                <td>Пн</td>
-                <td>Вт</td>
-                <td>Ср</td>
-                <td>Чт</td>
-                <td>Пт</td>
-                <td>Сб</td>
-                <td>Вс</td>
+                <td>Mon</td><td>Tue</td><td>Wed</td><td>Thu</td><td>Fri</td><td>Sat</td><td>Sun</td>
             </tr>
+        </thead>
         <tbody>
         </tbody>
     </table>
-
     <script type="module" src="./js/main.js"></script>
-</body>
 
+    <div class="tasksday hide"></div>
+</body>
 </html>

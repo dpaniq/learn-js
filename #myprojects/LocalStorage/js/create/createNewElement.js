@@ -1,5 +1,5 @@
 function createOne(attr = []) {
-    let base = attr[1]
+    let base = attr[0]
     for (let i = 1; i < attr.length; i++){
         base.appendChild(attr[i])
     }

@@ -1,0 +1,53 @@
+/* Calendar */
+#calendar {
+    position: relative;
+    width: 100%;
+    font: monospace;
+    /* line-height: 4em; */
+    font-size: 15px;
+    text-align: center;
+}
+
+#calendar td{
+    position: relative;
+    width: 14.3%;
+    height: 50px;
+}
+
+#calendar td:hover:nth-child(odd) {
+    color: whitesmoke;
+    background: rgb(224, 85, 85);
+    transition: 0.2s;
+    transition-delay: 0.25s;
+}
+
+#calendar td:hover:nth-child(even) {
+    color: whitesmoke;
+    background: rgb(151, 66, 66);
+    transition: 0.2s;
+    transition-delay: 0.25s;
+}
+
+#calendar thead tr:last-child {
+    font-size: xx-large;
+    color: rgb(85, 85, 85);
+}
+#calendar thead tr:nth-child(1) td:nth-child(2) {
+    color: rgb(50, 50, 50);
+}
+#calendar thead tr:nth-child(1) td:nth-child(1):hover, #calendar thead tr:nth-child(1) td:nth-child(3):hover {
+    cursor: pointer;
+}
+#calendar tbody td {
+    color: rgb(44, 86, 122);
+}
+#calendar tbody td:nth-child(n+6), #calendar .holiday {
+    color: rgb(231, 140, 92);
+}
+#calendar tbody td.today {
+    background: rgb(220, 0, 0);
+    color: #fff;
+}
+
+/* Calendar End ============================*/
+
