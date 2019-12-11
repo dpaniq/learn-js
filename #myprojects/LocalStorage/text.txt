@@ -1,3 +1,52 @@
-Reconsider TASK object
-By pressing <td> a window with fields appears
-LocalStorage: history
+https://4brain.ru/blog/%D0%BE%D1%84%D0%BE%D1%80%D0%BC%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B5%D0%B6%D0%B5%D0%B4%D0%BD%D0%B5%D0%B2%D0%BD%D0%B8%D0%BA%D0%B0/
+
+Make a beautiful ALLTASK window
+ALLTASK window add CLOSEBUTTON
+ALLTASK sort function
+
+add ADDBUTTON next to CLOSEBUTTON
+
+ADDBUTTON have to use the chosen DATE
+
+TD ADD = START DAY = DAY TODAY
+
+SEARCH FIELD by time (and between time)
+             by taskname
+             by catagory
+
+CATEGORY
+
+When hover TD HOVER became other color and sign PLUS
+TD looks [              ]               [              ]
+         [              ]     hover     [              ]
+         [      DAY     ]       =>      [   (   +   )  ]
+         [              ]               [              ]
+colorize [  #2  *1  !1  ]               [              ]
+
+   ! * # -> category of task - simple, important, fast
+
+
+Page with rank (90/102) - You are successful on 91%
+Make a hisotry Page
+
+
+
+THREE TAPS ON:
+
+1 Day 7 Day 
+
+GlOBAL:
+   Tasks marks:
+      ! Important and urgent issues (they must be resolved right now);
+      M Important, but not urgent issues (they need to devote the main time);
+      Not important and urgent issues (better delegated);
+      Not important and not urgent issues (it is recommended to completely abandon them).
+
+GLOBAL:
+   Every Monday and Thursday, the same thing happens.
+
+global:
+   All task (if they dont finished) go to the next day!
+
+Clear CSS Styles
+Questions:

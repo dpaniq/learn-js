@@ -13,17 +13,17 @@
     <form class="formShort hide">
         <label for="task">Task</label>
         <input type="text" name="task_name" placeholder="New Task Item" required>
-        <input type="button" name="task_plus" value="Addition"><br>
+        <input type="button" name="task_plus" value="Addition">
 
         <div class="formLong hide">
             <label for="description">Description:</label>
             <textarea name="task_description" placeholder="Describe Your Task"></textarea><br>
             <label for="timeStart">Start to:</label>
-            <input type="datetime-local" name="task_timeStart"><br>
+            <input type="datetime-local" name="task_timeStart">
             <label for="timeFinish">Finish to:</label>
-            <input type="datetime-local" name="task_timeFinish"><br>
+            <input type="datetime-local" name="task_timeFinish">
             <input type="reset" value='&#8635;'>
-        </div><br>
+        </div>
 
         <input type="submit" value="Add">
         <button class="closeTaskAdderBtn hide">&#9932;</button>
@@ -32,9 +32,9 @@
     <table id="calendar">
         <thead>
             <tr>
-                <td>‹</td>
-                <td colspan="5"></td>
-                <td>›</td>
+                <th>&#9664;</th>
+                <th colspan="5"></th>
+                <th>&#9654;</th>
             </tr>
             <tr>
                 <td>Mon</td><td>Tue</td><td>Wed</td><td>Thu</td><td>Fri</td><td>Sat</td><td>Sun</td>
@@ -44,7 +44,9 @@
         </tbody>
     </table>
     <script type="module" src="./js/main.js"></script>
-
+th
     <div class="tasksday hide"></div>
+    <input type='search' id='search' placeholder="SEARCH">
+    <input type='list'> MAKE A DROP LIST MENU : CATEGORY TASKNAME TIME BETWEEN
 </body>
 </html>

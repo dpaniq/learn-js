@@ -10,7 +10,6 @@
 // https://www.w3schools.com/html/html_symbols.asp
 
 import {PanelFastTask, PanelLongTask} from '../js/panel/paneltask.js'
-import {detailTabs} from '../js/detailtab.js'
 import {Calendar} from '../js/calendar.js'
 import {createNewElement} from '../js/create/createNewElement.js'
 import {fillTaskProporties, saveToLocalStorage, tasks, showAllTaskForThatDay} from '../js/object/tasks.js'
@@ -60,7 +59,12 @@ function tdOpenTaskAdder (event) {
     let timing = new Date().getTime() - tclick_down
     console.log('timiing is', timing)
     if (timing > 500) {
-        document.querySelector('.tasksday').appendChild(showAllTaskForThatDay(event.target))
+        document.querySelector('.tasksday').textContent = ''
+        showAllTaskForThatDay(event.target).forEach(element => {
+            document.querySelector('.tasksday').append(element)
+        });
+
+        // document.querySelector('.tasksday').appendChild(showAllTaskForThatDay(event.target))
         document.querySelector('.tasksday').classList.toggle('hide')
     } else {
         if (event.target.tagName === 'TD') {

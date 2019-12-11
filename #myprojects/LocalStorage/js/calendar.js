@@ -72,9 +72,11 @@ function Calendar(id, year, mnth) {
                 tdtime.getMonth() === tasktime.getMonth() &&
                 tdtime.getDate() === tasktime.getDate()) {
                     counter += 1
-                
-                alltd[x].lastChild.textContent = counter
             }
+            
+        }
+        if (counter) {
+            alltd[x].lastChild.innerHTML =  `&#8854 ${counter}`
         }
     }
 }
