@@ -5,10 +5,10 @@
 import {
     PanelFastTask,
     PanelLongTask
-        } from '../js/panel/paneltask.js'
+} from '../js/panel/paneltask.js'
 
 
-import {tasks} from '../js/object/tasks.js'
+import { tasks } from '../js/object/tasks.js'
 
 function Calendar(id, year, mnth) {
     let Dlast = new Date(year, mnth + 1, 0).getDate(),
@@ -41,7 +41,7 @@ function Calendar(id, year, mnth) {
             tr += `<td data-date-year="${year}" data-date-month="${mnth}" data-date-day="${i}"> ${i}`
         }
 
-        tr += '<div class="daysymbols"></div>'  // tasksfortheday contains all tasks for today
+        // tr += '<div class="daysymbols"></div>'  // tasksfortheday contains all tasks for today
 
         if (new Date(D.getFullYear(), D.getMonth(), i).getDay() == 0) {
             tr += '<tr>';
@@ -49,7 +49,7 @@ function Calendar(id, year, mnth) {
     }
     for (let i = DNlast; i < 7; i++) tr += '<td>&nbsp;';
     document.querySelector('#' + id + ' tbody').innerHTML = tr;
-    
+
 
     document.querySelector('#' + id + ' thead td:nth-child(2)').innerHTML = month[D.getMonth()] + ' ' + D.getFullYear();
     document.querySelector('#' + id + ' thead td:nth-child(2)').dataset.month = D.getMonth();
@@ -64,20 +64,75 @@ function Calendar(id, year, mnth) {
     for (let x = 0; x < alltd.length; x++) {
         const tdtime = new Date(alltd[x].dataset.dateYear, alltd[x].dataset.dateMonth, alltd[x].dataset.dateDay)
         let counter = 0
+        let t1 = 0,
+            t2 = 0,
+            t3 = 0,
+            t4 = 0
         for (let xx = 0; xx < tasks.length; xx++) {
-            
+
             const tasktime = new Date(tasks[xx].task_date.start)
             
+
             if (tdtime.getFullYear() === tasktime.getFullYear() &&
                 tdtime.getMonth() === tasktime.getMonth() &&
                 tdtime.getDate() === tasktime.getDate()) {
-                    counter += 1
+                    switch (tasks[xx].task_type) {
+                        case 'ordinary':
+                            
+                            t1 += 1
+                            console.log('ordinary', t1)
+                            break;
+
+                        case 'urgently':
+                            t2 += 1
+                            console.log('urgently', t2)
+                            break;
+
+                        case 'important':
+                            t3 += 1
+                            console.log('important', t3)
+                            break;
+
+                        case 'performed':
+                            t4 += 1
+                            console.log('performed', t4)
+                            break;
+
+                        default:
+                            break;
+                    }
             }
+        }
+
+        if (t1 || t2 || t3 || t4) {
+            let placetasktype = document.createElement('div')
+            placetasktype.className = 'daysymbols'
             
+            if (t1) {
+                let t1div = document.createElement('div')
+                t1div.innerHTML = t1 + '⊙'
+                placetasktype.appendChild(t1div)
+                
+            }
+            if (t2) {
+                let t2div = document.createElement('div')
+                t2div.innerHTML = t2 + '⊕'
+                placetasktype.appendChild(t2div)
+            }
+            if (t3) {
+                let t3div = document.createElement('div')
+                t3div.innerHTML = t3 + '⊖'
+                placetasktype.appendChild(t3div)
+            }
+            if (t4) {
+                let t4div = document.createElement('div')
+                t4div.innerHTML = t4 + '⊗'
+                placetasktype.appendChild(t4div)
+            }
+        alltd[x].appendChild(placetasktype) 
         }
-        if (counter) {
-            alltd[x].lastChild.innerHTML =  `&#8854 ${counter}`
-        }
+
+       
     }
 }
 

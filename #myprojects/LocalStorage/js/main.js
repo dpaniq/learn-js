@@ -25,20 +25,27 @@ import {fillTaskProporties, saveToLocalStorage, tasks, showAllTaskForThatDay} fr
 //     taskAddition.classList.toggle('hide')
 
 // })
-document.addEventListener('mousedown', timeclickdown)
-document.querySelector('#calendar').addEventListener('click', tdOpenTaskAdder)
-document.querySelector('.closeTaskAdderBtn').addEventListener('click', closeTaskAdderBtn)
-document.querySelector('.formShort').addEventListener('submit', addNewTask)
-document.querySelector('input[name="task_plus"]').addEventListener('click', toggleFormLong)
-document.querySelector('.tasksday').addEventListener('click', hideTaskDay)
-
 let tclick_down = 0
+document.addEventListener('mousedown', () => {tclick_down = new Date().getTime()})
 
-function timeclickdown () {
-    console.log('FINISH')
-    tclick_down = new Date().getTime()
-    console.log(tclick_down)
-}
+document.querySelector('#calendar').addEventListener('click', tdOpenTaskAdder)
+
+// Short/Long Form
+let tStart = document.querySelector('[name="task_timeStart"]')
+
+let formShort = document.querySelector('.formShort')
+formShort.addEventListener('submit', addNewTask)
+document.querySelector('input[name="task_plus"]').addEventListener('click', toggleFormLong)
+let showTasksDay = document.querySelector('.tasksday')
+
+// Buttons
+let closeBtn = document.querySelector('.closeTaskAdderBtn')
+closeBtn.addEventListener('click', closeTaskAdderBtn)
+
+let plusBtn = document.querySelector('.plusTaskAdderBtn')
+plusBtn.addEventListener('click', plusTaskAdderBtn)
+
+
 
 function toggleFormLong(event) {
     document.querySelector('.formLong').classList.toggle('hide')
@@ -48,7 +55,6 @@ function addNewTask(event) {
     event.preventDefault()
 
     tasks.push(fillTaskProporties())
-    console.log(tasks[tasks.length])
     saveToLocalStorage()
     
     Calendar("calendar", new Date().getFullYear(), new Date().getMonth());
@@ -59,26 +65,55 @@ function tdOpenTaskAdder (event) {
     let timing = new Date().getTime() - tclick_down
     console.log('timiing is', timing)
     if (timing > 500) {
-        document.querySelector('.tasksday').textContent = ''
+        showTasksDay.textContent = ''
         showAllTaskForThatDay(event.target).forEach(element => {
-            document.querySelector('.tasksday').append(element)
+            showTasksDay.append(element)
         });
 
-        // document.querySelector('.tasksday').appendChild(showAllTaskForThatDay(event.target))
-        document.querySelector('.tasksday').classList.toggle('hide')
+        // showTasksDay.appendChild(showAllTaskForThatDay(event.target))
+        showTasksDay.classList.toggle('hide')
+        closeBtn.classList.toggle('hide')
+        plusBtn.classList.toggle('hide')
     } else {
         if (event.target.tagName === 'TD') {
-            document.querySelector('.formShort').classList.toggle('hide')
-            document.querySelector('.closeTaskAdderBtn').classList.toggle('hide')
+
+            let tempDate = new Date(event.target.dataset.dateYear, event.target.dataset.dateMonth, event.target.dataset.dateDay)
+            tStart.value = tempDate.toISOString().substring(0, 16)
+
+ 
+            formShort.classList.toggle('hide')
+            closeBtn.classList.toggle('hide')
         }
     }  
 }
 
+// Buttons
 function closeTaskAdderBtn(event) {
-        document.querySelector('.formShort').classList.toggle('hide')
+        if (!showTasksDay.classList.contains('hide')) {
+            showTasksDay.classList.toggle('hide')}
+
+        if (!formShort.classList.contains('hide')) {
+            formShort.classList.toggle('hide')}
+
         event.target.classList.toggle('hide')
+        // plusBtn.classList.toggle('hide')
 }
 
-function hideTaskDay(event) {
-    document.querySelector('.tasksday').classList.toggle('hide')
+function plusTaskAdderBtn(event) {
+    if (formShort.classList.contains('hide')) {
+        // let tempDate = new Date().toISOString().substring(0, 16)
+        // console.log(tempDate, new Date())
+        const ty = new Date().getFullYear(),
+              tm = new Date().getMonth() + 1 < 10 ? '0' + (new Date().getMonth() + 1) : new Date().getMonth() + 1,
+              td = new Date().getDate() < 10 ? '0' + new Date().getDate() : new Date().getDate()
+
+        
+        console.log(ty, tm, td, new Date())
+        
+        tStart.value = `${ty}-${tm}-${td}T06:00:00` // 2011-10-05T14:48:00'
+        formShort.classList.toggle('hide')
+        
+    }
+    closeBtn.classList.toggle('hide')
+    // plusBtn.classList.toggle('hide')
 }

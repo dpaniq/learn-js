@@ -1,20 +1,21 @@
 https://4brain.ru/blog/%D0%BE%D1%84%D0%BE%D1%80%D0%BC%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B5%D0%B6%D0%B5%D0%B4%D0%BD%D0%B5%D0%B2%D0%BD%D0%B8%D0%BA%D0%B0/
 
-Make a beautiful ALLTASK window
-ALLTASK window add CLOSEBUTTON
 ALLTASK sort function
 
-add ADDBUTTON next to CLOSEBUTTON
 
-ADDBUTTON have to use the chosen DATE
 
-TD ADD = START DAY = DAY TODAY
 
 SEARCH FIELD by time (and between time)
              by taskname
-             by catagory
+             by category
 
 CATEGORY
+1 step is form
+      <option value="health">HEALTH</option>
+      <option value="sport">SPORT</option>
+        <option value="homework">HOMEWORK</option>
+        <option value="job">JOB</option>
+        <option value="meeting">MEETING</option>
 
 When hover TD HOVER became other color and sign PLUS
 TD looks [              ]               [              ]
@@ -35,18 +36,57 @@ THREE TAPS ON:
 
 1 Day 7 Day 
 
-GlOBAL:
-   Tasks marks:
-      ! Important and urgent issues (they must be resolved right now);
-      M Important, but not urgent issues (they need to devote the main time);
-      Not important and urgent issues (better delegated);
-      Not important and not urgent issues (it is recommended to completely abandon them).
 
 GLOBAL:
    Every Monday and Thursday, the same thing happens.
+   Delete chain or one task for today
 
 global:
    All task (if they dont finished) go to the next day!
 
+Switch function:
+   Long click on TD mean ADD NEW Task
+   short click on TD mean SHOW ALL TASKS FOR TODAY
+
+
+Local: Make a beautiful ALLTASK window =>
+
+            sort priority           show/hide
+   ...
+   Task N (Priority: pale gray)        =>    Task name        |     name of task
+   ...                                       Task description |     Descripiton
+                                             START            |     DATE
+                                             finished         |     DATE
+                                             category         |     Heath Ψ
+                                             Kind of task     |     ! (important)
+                                             Progress bar:
+                                             [//////                             ]
+
+That day has no any tasks (like 404)
+
+Local:
+   Change header of calendar hd tags to hr. 
+   Check for all work
+
+
 Clear CSS Styles
+
+
+
+
+Use it:
+
+Able of task:
+   urgently    = ⊕
+   important   = ⊖
+   ordinary    = ⊙
+   performed   = ⊗
+
+   deferred    = ⊛
+   other       = ⊘⊜⊝
+
+
+
 Questions:
+   Synchronize
+   Safe by clear cash

@@ -1,30 +1,24 @@
 /* Task */
 /* Form ============================*/
-.formShort, .formLong{
-
-   
-    display:flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
-
+.formShort{
+    position: absolute;
+    background-color: white;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 1);
-
-    transition-property: background-color;
-    transition-delay: 2s;
-}
-
-.formShort {
-    position: absolute;
     z-index: 2;
 }
 
-.formShort, .formLong > input{
-    margin-bottom: 20px;
+.formShort > input, label {
+    
+    display: block;
+    margin: 20px 100px 0 100px;
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    font-size: large;
+    padding: 15px;
 }
-
 /* Form End ============================*/
 
 .hide {
@@ -33,12 +27,13 @@
 
 /* Close ============================*/
 .closeTaskAdderBtn {
+    z-index: 66;
     position: fixed;
     top: 50px;
     right: 50px;
     width: 50px;
     height: 50px;
-    border: 1px solid rgb(238, 236, 236);
+    border: 1px solid  rgba(77, 58, 131, 0.959);
     border-radius: 25px;
 
     background-color: unset;
@@ -48,31 +43,84 @@
 }
 
 .closeTaskAdderBtn:hover{
-    z-index: 3;
+    
     font-size: xx-large;
+    top: 25px;
     width: 70px;
     height: 70px;
     border-radius: 35px;
 
 
-    border: 2px solid rgb(238, 236, 236);;
+    border: 2px solid  rgba(77, 58, 131, 0.959);
+}
+/* Close End ============================*/
+
+
+/* Plus ============================*/
+.plusTaskAdderBtn {
+    z-index: 66;
+    position: fixed;
+    top: 50px;
+    right: 98px;
+    width: 50px;
+    height: 50px;
+    border: 1px solid rgba(77, 58, 131, 0.959);
+    border-radius: 25px;
+
+    background-color: unset;
+
+    font-size: medium;
+    transition-duration: 400ms;
+}
+
+.plusTaskAdderBtn:hover{
+    
+    font-size: xx-large;
+    top: 39px;
+    right: 88px;
+    width: 70px;
+    height: 70px;
+    border-radius: 35px;
+    
+    background-color: rgb(187, 245, 164);
+    border: 2px solid rgba(77, 58, 131, 0.959);
 }
 /* Close End ============================*/
 
 /* Task Adder End ============================*/
 
 .daysymbols {
-    position: absolute;
-    font-size: large;
-    font-weight: 900;
-    top: 5px;
-    right: 5px;
-    color:rgb(243, 239, 239)
+    top: 0;
+    left: 0;
+    font: status-bar;
+    color:rgb(243, 239, 239);
+
 }
 
-.asd {
-    font-size: xx-large;
+.daysymbols > div:nth-child(1) {
+    position: absolute;
+    top: 5px;
+    left: 5px;
 }
+
+.daysymbols > div:nth-child(2) {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.daysymbols > div:nth-child(3) {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+}
+
+.daysymbols> div:nth-child(4) {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}
+
 
 .tasksday {
     position: absolute;
@@ -85,11 +133,13 @@
 }
 
 .detailTab {
-    max-width: inherit;
+    margin: 20px 200px 20px 200px;
+    /* max-width: inherit; */
     display: inline-block ;
-    margin: 20px 50px 0 50px;
+    
     border: 3px dotted rgb(245, 229, 229);
     border-radius: 25px;
+    overflow: hidden;
 }
 
 
@@ -107,10 +157,14 @@
     font-size: x-large;
 }
 
-#search {
-    width: 60%;
-    font-size: 5em;
+#search, #searchSubmit, select[name="category_list"]  {
+    width: 33.1%;
+    font-size: 3em;
     text-align: center;
+    padding: 5px;
     border: 0;
-    box-shadow: 0 0 10px rgba(156, 153, 153, 0.5);
+    box-shadow: 0 0 10px rgba(156, 153, 153, 0.1);
+    text-align-last:center;
+    background: white;
+    color: rgba(77, 58, 131, 0.959)
 }

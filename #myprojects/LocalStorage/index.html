@@ -13,11 +13,19 @@
     <form class="formShort hide">
         <label for="task">Task</label>
         <input type="text" name="task_name" placeholder="New Task Item" required>
-        <input type="button" name="task_plus" value="Addition">
+        <input type="button" name="task_plus" value="&#11206"> <br>
 
         <div class="formLong hide">
             <label for="description">Description:</label>
-            <textarea name="task_description" placeholder="Describe Your Task"></textarea><br>
+            <textarea name="task_description" placeholder="Describe Your Task"></textarea>
+
+            <select id="tasktype" name='task_type'>
+                <option value="ordinary">Oridanary (⊙)</option>
+                <option value="urgently">Urgently (⊕)</option>
+                <option value="important">Important (⊖)</option>
+                <option value="performed">Performed (⊗)</option>
+            </select>
+            
             <label for="timeStart">Start to:</label>
             <input type="datetime-local" name="task_timeStart">
             <label for="timeFinish">Finish to:</label>
@@ -26,15 +34,15 @@
         </div>
 
         <input type="submit" value="Add">
-        <button class="closeTaskAdderBtn hide">&#9932;</button>
+        <!-- <button class="closeTaskAdderBtn hide">&#9932;</button> -->
     </form>
 
     <table id="calendar">
         <thead>
             <tr>
-                <th>&#9664;</th>
-                <th colspan="5"></th>
-                <th>&#9654;</th>
+                <td>&#9664;</td>
+                <td colspan="5"></td>
+                <td>&#9654;</td>
             </tr>
             <tr>
                 <td>Mon</td><td>Tue</td><td>Wed</td><td>Thu</td><td>Fri</td><td>Sat</td><td>Sun</td>
@@ -44,9 +52,26 @@
         </tbody>
     </table>
     <script type="module" src="./js/main.js"></script>
-th
-    <div class="tasksday hide"></div>
+
+    <div class="tasksday hide">
+        
+    </div>
+    <button class="closeTaskAdderBtn hide">&#9932;</button>
+    <button class="plusTaskAdderBtn">&#9547;</button>
+
+    <select name="search_type">
+        <option value="bytaskname">TASK NAME</option>
+        <option value="bytimebetween" selected="selected">TIME BETWEEN</option>
+        <option value="bycategory">CATEGORY</option>
+      </select>
     <input type='search' id='search' placeholder="SEARCH">
-    <input type='list'> MAKE A DROP LIST MENU : CATEGORY TASKNAME TIME BETWEEN
+    <select name="category_list">
+        <option value="health">HEALTH</option>
+        <option value="sport">SPORT</option>
+        <option value="homework">HOMEWORK</option>
+        <option value="job">JOB</option>
+        <option value="meeting">MEETING</option>
+      </select>
+    <input type='submit' id='searchSubmit' value='Search'>
 </body>
 </html>

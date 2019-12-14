@@ -10,7 +10,7 @@ export function fillTaskProporties() {
     return {
         task_name: document.querySelector('[name="task_name"]').value || '',
         task_description: document.querySelector('[name="task_description"]').value || '',
-    
+        task_type: document.querySelector('[name="task_type').value,
     
         // task_category: document.querySelector('[name="task_name"]').value || '',
         task_date: {
@@ -69,6 +69,12 @@ function showTaskDetail(task){
         let timestart = document.createElement('div')
         timestart.textContent = new Date(task.task_date.start)
         detailTab.appendChild(timestart)
+    } 
+
+    if (task.task_type) {
+        let tasktype = document.createElement('div')
+        tasktype.textContent = 'Type of task: ' + task.task_type
+        detailTab.appendChild(tasktype)
     } 
 
     if (task.task_date.finish) {
