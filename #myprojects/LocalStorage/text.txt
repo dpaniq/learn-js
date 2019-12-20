@@ -1,22 +1,22 @@
-https://4brain.ru/blog/%D0%BE%D1%84%D0%BE%D1%80%D0%BC%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B5%D0%B6%D0%B5%D0%B4%D0%BD%D0%B5%D0%B2%D0%BD%D0%B8%D0%BA%D0%B0/
+Name of project and the deadstate = 'dayap'
+Ideas for Organizer: https://4brain.ru/blog/%D0%BE%D1%84%D0%BE%D1%80%D0%BC%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B5%D0%B6%D0%B5%D0%B4%D0%BD%D0%B5%D0%B2%D0%BD%D0%B8%D0%BA%D0%B0/
+
+Category Options ADD NEW TASK
 
 ALLTASK sort function
 
 
 
+Local:
+   Switch off td calendar.
 
-SEARCH FIELD by time (and between time)
-             by taskname
-             by category
 
-CATEGORY
-1 step is form
-      <option value="health">HEALTH</option>
-      <option value="sport">SPORT</option>
-        <option value="homework">HOMEWORK</option>
-        <option value="job">JOB</option>
-        <option value="meeting">MEETING</option>
 
+Global: ?
+   All hide style reconsider and rewrite by:
+      x.setAttribute('hidden', '')
+      x.removeAttribute('hidden')
+      
 When hover TD HOVER became other color and sign PLUS
 TD looks [              ]               [              ]
          [              ]     hover     [              ]
@@ -26,16 +26,11 @@ colorize [  #2  *1  !1  ]               [              ]
 
    ! * # -> category of task - simple, important, fast
 
-
 Page with rank (90/102) - You are successful on 91%
 Make a hisotry Page
 
-
-
 THREE TAPS ON:
-
-1 Day 7 Day 
-
+   1 Day 7 Day 
 
 GLOBAL:
    Every Monday and Thursday, the same thing happens.
@@ -43,13 +38,28 @@ GLOBAL:
 
 global:
    All task (if they dont finished) go to the next day!
-
 Switch function:
    Long click on TD mean ADD NEW Task
    short click on TD mean SHOW ALL TASKS FOR TODAY
 
 
-Local: Make a beautiful ALLTASK window =>
+
+
+That day has no any tasks (like 404)
+
+Local:
+   Change header of calendar hd tags to hr. 
+   Check for all work
+
+
+Clear CSS Styles
+
+Append of all TITLE ARGUMENTS
+
+==================================================================================
+[Below are accomplish]
+==================================================================================
+Local: Make a beautiful detailTab window =>
 
             sort priority           show/hide
    ...
@@ -62,17 +72,12 @@ Local: Make a beautiful ALLTASK window =>
                                              Progress bar:
                                              [//////                             ]
 
-That day has no any tasks (like 404)
+detailTab have two tabs: 
+   1. NameofTask -> ListOFNames (div)
+   2. Proporty   -> Proportiies
+==================================================================================
 
-Local:
-   Change header of calendar hd tags to hr. 
-   Check for all work
-
-
-Clear CSS Styles
-
-
-
+.............................................
 
 Use it:
 
@@ -81,12 +86,19 @@ Able of task:
    important   = ⊖
    ordinary    = ⊙
    performed   = ⊗
-
+   --- use beneath signs ---
    deferred    = ⊛
    other       = ⊘⊜⊝
 
-
+Category:
+   HEALTH
+   SPORT
+   HOMEWORK
+   JOB
+   MEETING
 
 Questions:
-   Synchronize
+   Synchronize --> remote database?
    Safe by clear cash
+   DRY
+   frameworks

@@ -25,6 +25,16 @@
                 <option value="important">Important (⊖)</option>
                 <option value="performed">Performed (⊗)</option>
             </select>
+
+            <!-- Add  -->
+            <select name="taskcategories" title="Hold CTRL for choose more then one category" multiple>
+                <option value="health">HEALTH</option>
+                <option value="sport">SPORT</option>
+                <option value="homework">HOMEWORK</option>
+                <option value="job">JOB</option>
+                <option value="meeting">MEETING</option>
+                <input type="text" name="addcategorytask" id="" placeholder="Add new category">
+              </select>
             
             <label for="timeStart">Start to:</label>
             <input type="datetime-local" name="task_timeStart">
@@ -54,24 +64,49 @@
     <script type="module" src="./js/main.js"></script>
 
     <div class="tasksday hide">
-        
+        <div id="tasksdayNames"></div>
+        <div id='tasksdayTaskDetail'></div>
     </div>
-    <button class="closeTaskAdderBtn hide">&#9932;</button>
-    <button class="plusTaskAdderBtn">&#9547;</button>
+        
+    <div id="tools">
+        <button class="plusTaskAdderBtn">&#9547;</button>
+        <button class="searchTaskBtn">&#x2315;</button>
+        <button class="closeTaskAdderBtn">&#9932;</button>
+    </div>
+        
+        <form class="searchForm hide">
+            <div>
+                <select name="search_type">
+                    <option value="bytaskname" selected="selected">TASK NAME</option>
+                    <option value="bytimebetween">TIME BETWEEN</option>
+                    <option value="bycategory">CATEGORY</option>
+                </select>
+            </div>
 
-    <select name="search_type">
-        <option value="bytaskname">TASK NAME</option>
-        <option value="bytimebetween" selected="selected">TIME BETWEEN</option>
-        <option value="bycategory">CATEGORY</option>
-      </select>
-    <input type='search' id='search' placeholder="SEARCH">
-    <select name="category_list">
-        <option value="health">HEALTH</option>
-        <option value="sport">SPORT</option>
-        <option value="homework">HOMEWORK</option>
-        <option value="job">JOB</option>
-        <option value="meeting">MEETING</option>
-      </select>
-    <input type='submit' id='searchSubmit' value='Search'>
+            <div>
+                <input type='search' class='search_task' placeholder="TEXT ME">
+            </div>
+            
+            <div class='search_between hide'>
+                    <input type="date" name="search_time_start">
+                    <input type="date" name="search_time_finish">
+            </div>
+            
+            <div>
+                <select class="search_category hide" title="Hold CTRL for choose more then one category" multiple size=3>
+                    <option value="health">HEALTH</option>
+                    <option value="sport">SPORT</option>
+                    <option value="homework">HOMEWORK</option>
+                    <option value="job">JOB</option>
+                    <option value="meeting">MEETING</option>
+                </select>
+            </div>
+
+            <div>
+                <input type='submit' id='searchSubmit' value='SEARCH'>
+            </div>
+            
+        </form>
+
 </body>
 </html>

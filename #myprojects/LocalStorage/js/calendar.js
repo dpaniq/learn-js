@@ -7,7 +7,6 @@ import {
     PanelLongTask
 } from '../js/panel/paneltask.js'
 
-
 import { tasks } from '../js/object/tasks.js'
 
 function Calendar(id, year, mnth) {
@@ -78,24 +77,19 @@ function Calendar(id, year, mnth) {
                 tdtime.getDate() === tasktime.getDate()) {
                     switch (tasks[xx].task_type) {
                         case 'ordinary':
-                            
                             t1 += 1
-                            console.log('ordinary', t1)
                             break;
 
                         case 'urgently':
                             t2 += 1
-                            console.log('urgently', t2)
                             break;
 
                         case 'important':
                             t3 += 1
-                            console.log('important', t3)
                             break;
 
                         case 'performed':
                             t4 += 1
-                            console.log('performed', t4)
                             break;
 
                         default:

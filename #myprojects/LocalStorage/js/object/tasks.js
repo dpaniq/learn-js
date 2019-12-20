@@ -11,8 +11,7 @@ export function fillTaskProporties() {
         task_name: document.querySelector('[name="task_name"]').value || '',
         task_description: document.querySelector('[name="task_description"]').value || '',
         task_type: document.querySelector('[name="task_type').value,
-    
-        // task_category: document.querySelector('[name="task_name"]').value || '',
+        task_category: document.querySelector('[name="task_category"]').option || '',
         task_date: {
             start: document.querySelector('[name="task_timeStart"]').value || new Date(),
             finish: document.querySelector('[name="task_timeFinish"]').value || 0,
@@ -32,28 +31,48 @@ export function showAllTaskForThatDay (target) {
         if (new Date(tasks[i].task_date.start).getFullYear() === tdate.getFullYear() &&
             new Date(tasks[i].task_date.start).getMonth() === tdate.getMonth() &&
             new Date(tasks[i].task_date.start).getDate() === tdate.getDate()) {
-                    
-                // A: Nahodim vse elementi po etomu dnju i vikidivajem v return
-                //      Zatem proganjaem cherez funkciju kotoraja nahodit vse validnie dlja otobrazenija polja
-                //      zasovivajet v otdelnij div
-                //      progoditjsa detail tab
-                
-                
                 tasksinday.push(tasks[i])
             }
     }
 
-    let alltasks = []
-    for (let z = 0; z < tasksinday.length; z++){
-        alltasks.push(showTaskDetail(tasksinday[z]))
-    }
-    return alltasks
+    showTasksNames(tasksinday)
+    // let alltasks = []
+    // for (let z = 0; z < tasksinday.length; z++){
+    //     alltasks.push(showTaskDetail(tasksinday[z]))  
+    // }
+    // return alltasks
 }
 
-function showTaskDetail(task){
+
+const taskDayNames = document.querySelector('#tasksdayNames')
+const taskDayDetail= document.querySelector('#tasksdayTaskDetail')
+
+export function showTasksNames (data = [], clean = true) {
+    console.log('im here', data)
+    if (clean) {
+        taskDayNames.textContent = ''
+    }
+
+    for (let i = 0; i < data.length; i++){
+        let tskN_temp = document.createElement('button')
+        tskN_temp.setAttribute('class', 'tasksNames')
+        tskN_temp.setAttribute('title', data[i].task_name)
+        tskN_temp.setAttribute('name', data[i].task_name)
+        if (data[i].task_name.length > 10) {
+            tskN_temp.textContent = data[i].task_name.slice(0, 11) + '...'
+        } else {
+            tskN_temp.textContent = data[i].task_name
+        }
+        
+        taskDayNames.appendChild(tskN_temp)
+    }
+    
+}
+
+export function showTaskDetail(task){
 
     let detailTab = document.createElement('div')
-    detailTab.classList.add('detailTab')
+    detailTab.classList.add('tasksDetails')
 
     let name = document.createElement('div')
     name.textContent = task.task_name
@@ -63,6 +82,12 @@ function showTaskDetail(task){
         let describ = document.createElement('div')
         describ.textContent = task.task_description
         detailTab.appendChild(describ)
+    }
+
+    if (task.task_category) {
+        let category = document.createElement('div')
+        category.textContent = task.task_category
+        detailTab.appendChild(category)
     }
 
     if (task.task_date.start) {
@@ -131,9 +156,22 @@ function showTaskDetail(task){
 
         progressbarOut.appendChild(progressbarIn)
         detailTab.appendChild(progressbarOut)
-    } 
-
+    }
     return detailTab
 }
 
+let showTasksDay = document.querySelector('.tasksday')
+showTasksDay.addEventListener('click', showTaskNameAndDetail)
 
+// Task Name and detail 
+function showTaskNameAndDetail(event) {
+    const et = event.target
+    if (et.className === 'tasksNames') {
+        for (let i = 0; i < tasks.length; i++){
+            if (tasks[i].task_name === et.getAttribute('name')) {
+                tasksdayTaskDetail.textContent = ''
+                tasksdayTaskDetail.append(showTaskDetail(tasks[i]))
+            }
+        }
+    }
+}

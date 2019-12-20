@@ -7,10 +7,11 @@
 }
 
 body {
-    margin-top: 100px;
     position: relative;
+    margin-top: 30px;
+    bottom: 0;
     justify-content: center;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif !important;
 }
 
 .hide {

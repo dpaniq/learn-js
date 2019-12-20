@@ -13,7 +13,7 @@ import {PanelFastTask, PanelLongTask} from '../js/panel/paneltask.js'
 import {Calendar} from '../js/calendar.js'
 import {createNewElement} from '../js/create/createNewElement.js'
 import {fillTaskProporties, saveToLocalStorage, tasks, showAllTaskForThatDay} from '../js/object/tasks.js'
-
+import {searchFormActiveted} from './search.js'
 
 
 // START APPLICATION
@@ -30,7 +30,7 @@ document.addEventListener('mousedown', () => {tclick_down = new Date().getTime()
 
 document.querySelector('#calendar').addEventListener('click', tdOpenTaskAdder)
 
-// Short/Long Form
+// ShortLong Form ---------------------------------------------------------------------
 let tStart = document.querySelector('[name="task_timeStart"]')
 
 let formShort = document.querySelector('.formShort')
@@ -38,15 +38,24 @@ formShort.addEventListener('submit', addNewTask)
 document.querySelector('input[name="task_plus"]').addEventListener('click', toggleFormLong)
 let showTasksDay = document.querySelector('.tasksday')
 
-// Buttons
+// Buttons ---------------------------------------------------------------------
 let closeBtn = document.querySelector('.closeTaskAdderBtn')
 closeBtn.addEventListener('click', closeTaskAdderBtn)
 
 let plusBtn = document.querySelector('.plusTaskAdderBtn')
 plusBtn.addEventListener('click', plusTaskAdderBtn)
 
+let searchBtn = document.querySelector('.searchTaskBtn')
+searchBtn.addEventListener('click', showSearchTaskForm)
+// Search ---------------------------------------------------------------------
 
+let searchType = document.querySelector('[name="search_type"]')
+searchType.addEventListener('change', chooseSearchType)
 
+const searchForm = document.querySelector('.searchForm')
+searchForm.addEventListener('submit', searchFormActiveted)
+
+// What kind of functions are below?
 function toggleFormLong(event) {
     document.querySelector('.formLong').classList.toggle('hide')
 }
@@ -65,25 +74,25 @@ function tdOpenTaskAdder (event) {
     let timing = new Date().getTime() - tclick_down
     console.log('timiing is', timing)
     if (timing > 500) {
-        showTasksDay.textContent = ''
-        showAllTaskForThatDay(event.target).forEach(element => {
-            showTasksDay.append(element)
-        });
-
-        // showTasksDay.appendChild(showAllTaskForThatDay(event.target))
-        showTasksDay.classList.toggle('hide')
-        closeBtn.classList.toggle('hide')
-        plusBtn.classList.toggle('hide')
-    } else {
         if (event.target.tagName === 'TD') {
 
             let tempDate = new Date(event.target.dataset.dateYear, event.target.dataset.dateMonth, event.target.dataset.dateDay)
             tStart.value = tempDate.toISOString().substring(0, 16)
 
- 
             formShort.classList.toggle('hide')
             closeBtn.classList.toggle('hide')
         }
+    } else {
+                // showTasksDay.textContent = ''
+        // showAllTaskForThatDay(event.target).forEach(element => {
+        //     showTasksDay.append(element)
+        // });
+        showAllTaskForThatDay(event.target)
+
+        // showTasksDay.appendChild(showAllTaskForThatDay(event.target))
+        showTasksDay.classList.toggle('hide')
+        closeBtn.classList.toggle('hide')
+        plusBtn.classList.toggle('hide')
     }  
 }
 
@@ -117,3 +126,37 @@ function plusTaskAdderBtn(event) {
     closeBtn.classList.toggle('hide')
     // plusBtn.classList.toggle('hide')
 }
+
+function showSearchTaskForm(event) {
+    searchForm.classList.toggle('hide')
+}
+
+
+// Search functions #####################################
+
+let taskname = document.querySelector('.search_task'),
+    between  = document.querySelector('.search_between'),
+    category = document.querySelector('.search_category')
+
+function chooseSearchType(event) {
+    if (searchType.value === 'bytaskname'){
+        if (taskname.classList.contains('hide')) taskname.classList.toggle('hide')
+        if (!between.classList.contains('hide')) between.classList.toggle('hide')
+        if (!category.classList.contains('hide')) category.classList.toggle('hide')
+        
+    } else if (searchType.value === 'bytimebetween') {
+        if (!taskname.classList.contains('hide')) taskname.classList.toggle('hide')
+        if (between.classList.contains('hide')) between.classList.toggle('hide')
+        if (!category.classList.contains('hide')) category.classList.toggle('hide')
+
+    } else if (searchType.value === 'bycategory') {
+        if (!taskname.classList.contains('hide')) taskname.classList.toggle('hide')
+        if (!between.classList.contains('hide')) between.classList.toggle('hide')
+        if (category.classList.contains('hide')) category.classList.toggle('hide')
+    }
+}
+
+// Search <=- END -=>
+
+
+
