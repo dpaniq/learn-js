@@ -11,7 +11,7 @@ export function fillTaskProporties() {
         task_name: document.querySelector('[name="task_name"]').value || '',
         task_description: document.querySelector('[name="task_description"]').value || '',
         task_type: document.querySelector('[name="task_type').value,
-        task_category: document.querySelector('[name="task_category"]').option || '',
+        task_category: selectedOption(document.querySelector('[name="task_category"]')) || [],
         task_date: {
             start: document.querySelector('[name="task_timeStart"]').value || new Date(),
             finish: document.querySelector('[name="task_timeFinish"]').value || 0,
@@ -48,7 +48,7 @@ const taskDayNames = document.querySelector('#tasksdayNames')
 const taskDayDetail= document.querySelector('#tasksdayTaskDetail')
 
 export function showTasksNames (data = [], clean = true) {
-    console.log('im here', data)
+    console.log('Начался')
     if (clean) {
         taskDayNames.textContent = ''
     }
@@ -65,6 +65,9 @@ export function showTasksNames (data = [], clean = true) {
         }
         
         taskDayNames.appendChild(tskN_temp)
+    }
+    if (data = []){
+        console.log('Завершился')
     }
     
 }
@@ -174,4 +177,16 @@ function showTaskNameAndDetail(event) {
             }
         }
     }
+}
+
+export function selectedOption(elem) {
+
+    let options = elem.options
+    let select = []
+    for (let i = 0; i < options.length; i++) {
+        if (options[i].selected) {
+            select.push(options[i].text)
+        }
+    }
+    return select
 }

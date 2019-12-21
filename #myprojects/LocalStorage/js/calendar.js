@@ -46,13 +46,13 @@ function Calendar(id, year, mnth) {
             tr += '<tr>';
         }
     }
-    for (let i = DNlast; i < 7; i++) tr += '<td>&nbsp;';
+    for (let i = DNlast; i < 7; i++) tr += '<td></td>';
     document.querySelector('#' + id + ' tbody').innerHTML = tr;
 
 
-    document.querySelector('#' + id + ' thead td:nth-child(2)').innerHTML = month[D.getMonth()] + ' ' + D.getFullYear();
-    document.querySelector('#' + id + ' thead td:nth-child(2)').dataset.month = D.getMonth();
-    document.querySelector('#' + id + ' thead td:nth-child(2)').dataset.year = D.getFullYear();
+    document.querySelector('#' + id + ' thead th:nth-child(2)').innerHTML = month[D.getMonth()] + ' ' + D.getFullYear();
+    document.querySelector('#' + id + ' thead th:nth-child(2)').dataset.month = D.getMonth();
+    document.querySelector('#' + id + ' thead th:nth-child(2)').dataset.year = D.getFullYear();
     if (document.querySelectorAll('#' + id + ' tbody tr').length < 6) {  // чтобы при перелистывании месяцев не "подпрыгивала" вся страница, добавляется ряд пустых клеток. Итог: всегда 6 строк для цифр
         document.querySelector('#' + id + ' tbody').innerHTML += '<tr><td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;';
     }
@@ -133,18 +133,13 @@ function Calendar(id, year, mnth) {
 
 
 Calendar("calendar", new Date().getFullYear(), new Date().getMonth());
-// переключатель минус месяц
-document.querySelector('#calendar thead tr:nth-child(1) td:nth-child(1)').onclick = function () {
-    Calendar("calendar", document.querySelector('#calendar thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendar thead td:nth-child(2)').dataset.month) - 1);
+// Switch month before
+document.querySelector('#calendar thead tr:nth-child(1) th:nth-child(1)').onclick = function () {
+    Calendar("calendar", document.querySelector('#calendar thead th:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendar thead th:nth-child(2)').dataset.month) - 1);
 }
-// переключатель плюс месяц
-document.querySelector('#calendar thead tr:nth-child(1) td:nth-child(3)').onclick = function () {
-    Calendar("calendar", document.querySelector('#calendar thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendar thead td:nth-child(2)').dataset.month) + 1);
+// Switch month after
+document.querySelector('#calendar thead tr:nth-child(1) th:nth-child(3)').onclick = function () {
+    Calendar("calendar", document.querySelector('#calendar thead th:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendar thead th:nth-child(2)').dataset.month) + 1);
 }
-
-// выбираем нужный td
-// document.querySelector('#calendar').onclick = function (event) {
-//     console.log(event.target, 'попался:)')
-// }
 
 export { Calendar }

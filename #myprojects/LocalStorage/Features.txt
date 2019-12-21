@@ -1,0 +1,122 @@
+Name of project and the deadstate = 'dayap'
+Ideas for Organizer: https://4brain.ru/blog/%D0%BE%D1%84%D0%BE%D1%80%D0%BC%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B5%D0%B6%D0%B5%D0%B4%D0%BD%D0%B5%D0%B2%D0%BD%D0%B8%D0%BA%D0%B0/
+
+
+Global:
+   Separate input, button .... from css
+
+JS Future:
+   Resize td's higth th in dependence of display's resolution
+   Page of taskday With CLOCKS show/hide empty clocks in
+   Create repeat task? Monday Thuesday - Each time
+   Edit task page 
+   Performed tasks - what does do with these guys?
+   Help Page with features
+   Page of SETTINGS with on/off. (Would be nice)
+   Category Options ADD NEW TASK - Fix
+   Page with rank (90/102) - You are successful on 91% it dependence of How many tasks done in time (100tasks / 70 done * 100%)
+
+CSS Future:
+   Add task
+
+Fix - buttons shows/hiddes
+
+ALLTASK sort function
+
+Multiplie searching - Create
+
+
+Make a hisotry Page
+
+THREE TAPS ON:
+   1 Day 7 Day 
+
+GLOBAL:
+   Every Monday and Thursday, the same thing happens.
+   Delete chain or one task for today
+
+global:
+   All task (if they dont finished) go to the next day!
+Switch function:
+   Long click on TD mean ADD NEW Task
+   short click on TD mean SHOW ALL TASKS FOR TODAY
+
+Global:
+   IF < > or empty td Dont do show task
+
+Local:
+   Fix Progress bar
+
+
+That day has no any tasks (like 404)
+
+Local:
+   Change header of calendar hd tags to hr. 
+   Check for all work
+
+
+Clear CSS Styles
+
+Append of all TITLE ARGUMENTS
+
+
+Options CSS:
+/* The container must be positioned relative: */
+option {
+    position: relative;
+    font-family: Arial;
+}
+
+option select {
+    display: none; /*hide original SELECT element: */
+}
+
+.select-selected {
+background-color: rgb(32, 45, 58);
+}
+
+/* Style the arrow inside the select element: */
+.select-selected:after {
+position: absolute;
+content: "";
+top: 14px;
+right: 10px;
+width: 0;
+height: 0;
+border: 6px solid transparent;
+border-color: #fff transparent transparent transparent;
+}
+
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+border-color: transparent transparent #fff transparent;
+top: 7px;
+}
+
+/* style the items (options), including the selected item: */
+.select-items div,.select-selected {
+color: #ffffff;
+padding: 8px 16px;
+border: 1px solid transparent;
+border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+cursor: pointer;
+}
+
+/* Style items (options): */
+.select-items {
+position: absolute;
+background-color: DodgerBlue;
+top: 100%;
+left: 0;
+right: 0;
+z-index: 99;
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+    display: none;
+}
+
+option div:hover, .same-as-selected {
+    background-color: rgba(0, 0, 0, 0.1);
+}

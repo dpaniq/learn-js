@@ -1,60 +1,3 @@
-Name of project and the deadstate = 'dayap'
-Ideas for Organizer: https://4brain.ru/blog/%D0%BE%D1%84%D0%BE%D1%80%D0%BC%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B5%D0%B6%D0%B5%D0%B4%D0%BD%D0%B5%D0%B2%D0%BD%D0%B8%D0%BA%D0%B0/
-
-Category Options ADD NEW TASK
-
-ALLTASK sort function
-
-
-
-Local:
-   Switch off td calendar.
-
-
-
-Global: ?
-   All hide style reconsider and rewrite by:
-      x.setAttribute('hidden', '')
-      x.removeAttribute('hidden')
-      
-When hover TD HOVER became other color and sign PLUS
-TD looks [              ]               [              ]
-         [              ]     hover     [              ]
-         [      DAY     ]       =>      [   (   +   )  ]
-         [              ]               [              ]
-colorize [  #2  *1  !1  ]               [              ]
-
-   ! * # -> category of task - simple, important, fast
-
-Page with rank (90/102) - You are successful on 91%
-Make a hisotry Page
-
-THREE TAPS ON:
-   1 Day 7 Day 
-
-GLOBAL:
-   Every Monday and Thursday, the same thing happens.
-   Delete chain or one task for today
-
-global:
-   All task (if they dont finished) go to the next day!
-Switch function:
-   Long click on TD mean ADD NEW Task
-   short click on TD mean SHOW ALL TASKS FOR TODAY
-
-
-
-
-That day has no any tasks (like 404)
-
-Local:
-   Change header of calendar hd tags to hr. 
-   Check for all work
-
-
-Clear CSS Styles
-
-Append of all TITLE ARGUMENTS
 
 ==================================================================================
 [Below are accomplish]
@@ -79,9 +22,7 @@ detailTab have two tabs:
 
 .............................................
 
-Use it:
-
-Able of task:
+Kind of task:
    urgently    = ⊕
    important   = ⊖
    ordinary    = ⊙
@@ -102,3 +43,11 @@ Questions:
    Safe by clear cash
    DRY
    frameworks
+
+Main colors:
+    color: rgba(181, 212, 214, 1) - pale gray
+    color: rgba(52, 188, 161, 1)  - pale green
+    color: rgba(255, 137, 133, 1) - soft red
+    color: rgba(239, 239, 239, 1) - pale light gray
+    color: rgba(96, 98, 107, 1)   - pale dark gray
+

@@ -1,4 +1,4 @@
-import {tasks, showTasksNames, showTaskDetail} from '../js/object/tasks.js'
+import {tasks, showTasksNames, showTaskDetail, selectedOption} from '../js/object/tasks.js'
 export {searchFormActiveted} 
 
 let taskname = document.querySelector('.search_task'),
@@ -23,16 +23,16 @@ function searchFormActiveted(event) {
 
     } else if (searchtype.value === 'bycategory') {
         
-        let options = category.options;
+        // let options = category.options
 
-        let question = []
-        for (let i = 0; i < options.length; i++) {
-            if (options[i].selected) {
-                question.push(options[i].text);
-            }
+        // let question = []
+        // for (let i = 0; i < options.length; i++) {
+        //     if (options[i].selected) {
+        //         question.push(options[i].text)
+        //     }
 
-        }
-        searchTasksByTaskCategory(question)
+        // }
+        searchTasksByTaskCategory(selectedOption(category))
     }
 
     this.reset()
@@ -74,47 +74,21 @@ function searchTasksByTimeBetween (a,b) {
     plusBtn.classList.toggle('hide')
 }
 
-function searchTasksByTaskCategory (data) {
-    
+function searchTasksByTaskCategory (selectedList) {
+    console.log('Tasks', tasks) // objects
+    console.log('Data', selectedList) // What i select in form ['HEALTH', ...]
     let allTasksNames = []
-    let tempgroup = []
 
-
-    data.forEach(element => {
+    selectedList.forEach(element => {
         for (let i = 0; i < tasks.length; i++) {
-            if (element === tasks.task_category) {
-                tempgroup.push(element)
+            if (tasks[i].task_category.includes(element) && !allTasksNames.includes(tasks[i].task_category)) {
+                allTasksNames.push(tasks[i])
             }
         }
-
-        allTasksNames.push(tempgroup)
-        console.log(allTasksNames)
-    });
-    showTasksNames([])
-
-    for (let i = 0; i < allTasksNames.length; i++) {
-        showTasksNames(allTasksNames[i], false)
-    }
-    
+    })
+    showTasksNames(allTasksNames)
 
     showTasksDay.classList.toggle('hide')
     closeBtn.classList.toggle('hide')
     plusBtn.classList.toggle('hide')
 }
-
-// function showSearchData(data = '') {
-//     if (data) {
-//         for (let i = 0; i < tasks.length; i++) {
-        
-//         }
-//     }
-//     let searchDiv = document.createElement('div')
-//     searchDiv.id = 'searchdata'
-
-//     for (let i = 0; i < tasks.length; i++) {
-        
-//     }
-
-//     searchDiv.innerHTML = data
-//     document.body.appendChild(searchDiv)
-// }

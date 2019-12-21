@@ -11,51 +11,66 @@
 
 <body>
     <form class="formShort hide">
-        <label for="task">Task</label>
-        <input type="text" name="task_name" placeholder="New Task Item" required>
-        <input type="button" name="task_plus" value="&#11206"> <br>
+
+        <div>
+            <input type="text" name="task_name" placeholder="NEW TASK NAME" required>
+        </div>
+        <div>
+            <input type="button" name="task_plus" value="&#11206"> <br>
+        </div>
+        
 
         <div class="formLong hide">
-            <label for="description">Description:</label>
-            <textarea name="task_description" placeholder="Describe Your Task"></textarea>
+            <div>
+                <textarea name="task_description" placeholder="DESCRIBE YOUR TASK HERE" title='Describe your task'></textarea>
+            </div>
+            <div>
+                <select id="tasktype" name='task_type' size=3 title='Choose one kind of task'>
+                    <option value="ordinary">ORDINARY (⊙)</option>
+                    <option value="urgently">URGENTLY (⊕)</option>
+                    <option value="important">IMPORTANT (⊖)</option>
+                    <option value="performed">PERFORMED (⊗)</option>
+                </select>
+                <select name="task_category" title="Hold CTRL for choose more then one category" multiple size=3>
+                    <option value="health">HEALTH</option>
+                    <option value="sport">SPORT</option>
+                    <option value="homework">HOMEWORK</option>
+                    <option value="job">JOB</option>
+                    <option value="meeting">MEETING</option>
+                    <!-- <input type="text" name="addcategorytask" id="" placeholder="Add new category"> -->
+                </select>
+            </div>
 
-            <select id="tasktype" name='task_type'>
-                <option value="ordinary">Oridanary (⊙)</option>
-                <option value="urgently">Urgently (⊕)</option>
-                <option value="important">Important (⊖)</option>
-                <option value="performed">Performed (⊗)</option>
-            </select>
-
-            <!-- Add  -->
-            <select name="taskcategories" title="Hold CTRL for choose more then one category" multiple>
-                <option value="health">HEALTH</option>
-                <option value="sport">SPORT</option>
-                <option value="homework">HOMEWORK</option>
-                <option value="job">JOB</option>
-                <option value="meeting">MEETING</option>
-                <input type="text" name="addcategorytask" id="" placeholder="Add new category">
-              </select>
             
-            <label for="timeStart">Start to:</label>
-            <input type="datetime-local" name="task_timeStart">
-            <label for="timeFinish">Finish to:</label>
-            <input type="datetime-local" name="task_timeFinish">
-            <input type="reset" value='&#8635;'>
-        </div>
+            <div>
+                
+            </div>
+            
+            <div>
+                <input type="datetime-local" name="task_timeStart">
+                <input type="datetime-local" name="task_timeFinish">
+            </div>
 
-        <input type="submit" value="Add">
-        <!-- <button class="closeTaskAdderBtn hide">&#9932;</button> -->
+            <div>
+                <input type="reset" value='&#8635;'>
+            </div>
+        </div> 
+        <div>
+            <input type="submit" value="Add">
+            <!-- <button class="closeTaskAdderBtn hide">&#9932;</button> -->
+        </div>
+        
     </form>
 
     <table id="calendar">
         <thead>
             <tr>
-                <td>&#9664;</td>
-                <td colspan="5"></td>
-                <td>&#9654;</td>
+                <th>&#9664;</th>
+                <th colspan="5"></th>
+                <th>&#9654;</th>
             </tr>
             <tr>
-                <td>Mon</td><td>Tue</td><td>Wed</td><td>Thu</td><td>Fri</td><td>Sat</td><td>Sun</td>
+                <th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th>
             </tr>
         </thead>
         <tbody>
@@ -70,8 +85,8 @@
         
     <div id="tools">
         <button class="plusTaskAdderBtn">&#9547;</button>
-        <button class="searchTaskBtn">&#x2315;</button>
-        <button class="closeTaskAdderBtn">&#9932;</button>
+        <button class="searchTaskBtn">&#x2315;</button> <!--&#x2315; -->
+        <button class="closeTaskAdderBtn">&#9932;</button> 
     </div>
         
         <form class="searchForm hide">
@@ -108,5 +123,9 @@
             
         </form>
 
+        <footer>
+            <span style="color:rgba(52, 188, 161, 1)">dayap</span> developed <span style="color:rgba(52, 188, 161, 1)">dpaniq</span>
+            <p>2019</p>
+        </footer>
 </body>
 </html>

@@ -33,10 +33,17 @@
     font-size: xx-large;
     color: rgb(85, 85, 85);
 }
-#calendar thead tr:nth-child(1) td:nth-child(2) {
+#calendar thead tr:nth-child(1) th:nth-child(2) {
     color: rgb(50, 50, 50);
 }
-#calendar thead tr:nth-child(1) td:nth-child(1):hover, #calendar thead tr:nth-child(1) td:nth-child(3):hover {
+
+#calendar thead tr:nth-child(1) th:nth-child(1), #calendar thead tr:nth-child(1) th:nth-child(3) {
+    transition: font-size .35s ease-in-out;
+    
+}
+
+#calendar thead tr:nth-child(1) th:nth-child(1):hover, #calendar thead tr:nth-child(1) th:nth-child(3):hover {
+    color: coral;
     cursor: pointer;
 }
 #calendar tbody td {

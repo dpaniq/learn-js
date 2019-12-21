@@ -73,27 +73,26 @@ function addNewTask(event) {
 function tdOpenTaskAdder (event) {
     let timing = new Date().getTime() - tclick_down
     console.log('timiing is', timing)
-    if (timing > 500) {
-        if (event.target.tagName === 'TD') {
-
-            let tempDate = new Date(event.target.dataset.dateYear, event.target.dataset.dateMonth, event.target.dataset.dateDay)
-            tStart.value = tempDate.toISOString().substring(0, 16)
-
-            formShort.classList.toggle('hide')
-            closeBtn.classList.toggle('hide')
-        }
-    } else {
-                // showTasksDay.textContent = ''
-        // showAllTaskForThatDay(event.target).forEach(element => {
-        //     showTasksDay.append(element)
-        // });
-        showAllTaskForThatDay(event.target)
-
-        // showTasksDay.appendChild(showAllTaskForThatDay(event.target))
-        showTasksDay.classList.toggle('hide')
-        closeBtn.classList.toggle('hide')
-        plusBtn.classList.toggle('hide')
-    }  
+    if (event.target.tagName === 'TD' && event.target.textContent !== ''){
+        if (timing > 500) {
+               let tempDate = new Date(event.target.dataset.dateYear, event.target.dataset.dateMonth, event.target.dataset.dateDay)
+               tStart.value = tempDate.toISOString().substring(0, 16)
+   
+               formShort.classList.toggle('hide')
+               closeBtn.classList.toggle('hide')
+       } else {
+                   // showTasksDay.textContent = ''
+           // showAllTaskForThatDay(event.target).forEach(element => {
+           //     showTasksDay.append(element)
+           // });
+           showAllTaskForThatDay(event.target)
+   
+           // showTasksDay.appendChild(showAllTaskForThatDay(event.target))
+           showTasksDay.classList.toggle('hide')
+           closeBtn.classList.toggle('hide')
+           plusBtn.classList.toggle('hide')
+       }  
+    }
 }
 
 // Buttons
@@ -128,6 +127,8 @@ function plusTaskAdderBtn(event) {
 }
 
 function showSearchTaskForm(event) {
+    let cal = document.querySelector('#calendar')
+    cal.style.filter === '' ? cal.style.filter = "blur(5px)" : cal.style.filter = ""
     searchForm.classList.toggle('hide')
 }
 
