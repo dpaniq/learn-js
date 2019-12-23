@@ -1,8 +1,16 @@
 // Start Options (NEED OTHER FILE)
-console.log(window.screen.availHeight)
-let a = window.screen.availHeight
-let a95 = a * 95 / 100
-document.querySelector('#calendar').style.height = a95 + 'px'
+function docHeigth () {
+    document.querySelector('#calendar').style.height = window.innerHeight - 100 + 'px'
+}
+
+window.addEventListener(`resize`, event => {
+    document.querySelector('#calendar').style.height = window.innerHeight - 140 + 'px'
+  });
+
+// let a = window.innerHeight
+// let a95 = parseInt(a * 85 / 100)
+
+
 
 // https://learn.javascript.ru/bubbling-and-capturing
     // event.stopPropagation()
