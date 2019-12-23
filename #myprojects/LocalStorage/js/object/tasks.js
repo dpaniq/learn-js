@@ -48,10 +48,15 @@ const taskDayNames = document.querySelector('#tasksdayNames')
 const taskDayDetail= document.querySelector('#tasksdayTaskDetail')
 
 export function showTasksNames (data = [], clean = true) {
-    console.log('Начался')
+    
     if (clean) {
         taskDayNames.textContent = ''
     }
+
+    if (data.length == 0) {
+        taskDayDetail.innerHTML = `<h1>Совсем никаких дел на сегодня нет</h1><br><h2>Подумайте, что можно сделать на завтра?</h2>`
+    }
+    
 
     for (let i = 0; i < data.length; i++){
         let tskN_temp = document.createElement('button')
@@ -66,9 +71,7 @@ export function showTasksNames (data = [], clean = true) {
         
         taskDayNames.appendChild(tskN_temp)
     }
-    if (data = []){
-        console.log('Завершился')
-    }
+
     
 }
 

@@ -1,4 +1,10 @@
- // https://learn.javascript.ru/bubbling-and-capturing
+// Start Options (NEED OTHER FILE)
+console.log(window.screen.availHeight)
+let a = window.screen.availHeight
+let a95 = a * 95 / 100
+document.querySelector('#calendar').style.height = a95 + 'px'
+
+// https://learn.javascript.ru/bubbling-and-capturing
     // event.stopPropagation()
     // event.stopImmediatePropagation()
     // removeEventListener('click', tdOpenTaskAdder)
@@ -79,7 +85,7 @@ function tdOpenTaskAdder (event) {
                tStart.value = tempDate.toISOString().substring(0, 16)
    
                formShort.classList.toggle('hide')
-               closeBtn.classList.toggle('hide')
+            //    closeBtn.classList.toggle('hide')
        } else {
                    // showTasksDay.textContent = ''
            // showAllTaskForThatDay(event.target).forEach(element => {
@@ -89,8 +95,8 @@ function tdOpenTaskAdder (event) {
    
            // showTasksDay.appendChild(showAllTaskForThatDay(event.target))
            showTasksDay.classList.toggle('hide')
-           closeBtn.classList.toggle('hide')
-           plusBtn.classList.toggle('hide')
+        //    closeBtn.classList.toggle('hide')
+        //    plusBtn.classList.toggle('hide')
        }  
     }
 }
@@ -102,8 +108,15 @@ function closeTaskAdderBtn(event) {
 
         if (!formShort.classList.contains('hide')) {
             formShort.classList.toggle('hide')}
+        
+        if (!searchForm.classList.contains('hide')) {
+            let cal = document.querySelector('#calendar')
+            cal.style.filter === '' ? cal.style.filter = "blur(5px)" : cal.style.filter = ""
+            searchForm.classList.toggle('hide')}    
 
-        event.target.classList.toggle('hide')
+
+        // searchForm.classList.toggle('hide')
+        // event.target.classList.toggle('hide')
         // plusBtn.classList.toggle('hide')
 }
 
@@ -122,7 +135,7 @@ function plusTaskAdderBtn(event) {
         formShort.classList.toggle('hide')
         
     }
-    closeBtn.classList.toggle('hide')
+    // closeBtn.classList.toggle('hide')
     // plusBtn.classList.toggle('hide')
 }
 

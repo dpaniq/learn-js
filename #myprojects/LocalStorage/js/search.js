@@ -22,16 +22,6 @@ function searchFormActiveted(event) {
                                 document.querySelector('[name="search_time_finish"]').value)
 
     } else if (searchtype.value === 'bycategory') {
-        
-        // let options = category.options
-
-        // let question = []
-        // for (let i = 0; i < options.length; i++) {
-        //     if (options[i].selected) {
-        //         question.push(options[i].text)
-        //     }
-
-        // }
         searchTasksByTaskCategory(selectedOption(category))
     }
 
@@ -53,7 +43,7 @@ function searchTasksbyTaskName (taskname) {
     showTasksNames(allTasksNames)
     showTasksDay.classList.toggle('hide')
     
-    closeBtn.classList.toggle('hide')
+    // closeBtn.classList.toggle('hide')
     plusBtn.classList.toggle('hide')
 }   
 
@@ -70,13 +60,12 @@ function searchTasksByTimeBetween (a,b) {
 
     showTasksNames(allTasksNames)
     showTasksDay.classList.toggle('hide')
-    closeBtn.classList.toggle('hide')
+    // closeBtn.classList.toggle('hide')
     plusBtn.classList.toggle('hide')
 }
 
 function searchTasksByTaskCategory (selectedList) {
-    console.log('Tasks', tasks) // objects
-    console.log('Data', selectedList) // What i select in form ['HEALTH', ...]
+
     let allTasksNames = []
 
     selectedList.forEach(element => {
@@ -89,6 +78,6 @@ function searchTasksByTaskCategory (selectedList) {
     showTasksNames(allTasksNames)
 
     showTasksDay.classList.toggle('hide')
-    closeBtn.classList.toggle('hide')
+    // closeBtn.classList.toggle('hide')
     plusBtn.classList.toggle('hide')
 }
