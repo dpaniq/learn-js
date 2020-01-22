@@ -1,0 +1,151 @@
+* {
+    margin:0;
+    padding: 0;
+    color:white;
+}
+
+header{
+    padding-top: 10px;
+    display:flex;
+    flex-direction: row;
+    background-color: rgb(0, 0, 0);
+    justify-content: center;
+}
+
+#container {
+    position: absolute;
+    background-color: rgb(0, 0, 0);
+    height: 100%;
+    width: 100%;
+}
+
+#container p {
+    /* color: white; */
+    font: 250px;
+}
+
+#tournament-tab{
+    width: 399px;
+    display: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#tournament-tab div{
+    padding: 10px 20px 10px 20px;
+}
+
+#tournament-tab div input{
+    color:black !important;
+    padding: 5px 5px 5px 5px;
+    width:30px;
+}
+
+#players-name {
+    display: flex;
+    flex-direction: column;
+}
+
+#players-name input{
+    margin: 5px auto !important;
+    width:100px !important;
+    padding: 5px 20px 5px 20px !important;
+}
+
+#score-board{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+
+    width: 800px;
+    
+
+    display:flex;
+    background-color: rgb(0, 0, 0);
+}
+
+#information-block{
+    position:absolute;
+    top:180px;
+    font-size: xx-large;
+}
+#left {
+    margin-left: 30px;
+    background-color: rgb(78, 113, 184);
+}
+
+#right {
+    margin-right: 30px;
+    background-color: rgba(216, 34, 68, 1);
+}
+#left, #right{
+    position: relative;
+    width: 350px;
+
+    text-align: center;
+    border: 5px solid rgba(0, 2, 38, 1)
+}
+
+#left, #right {
+    font: 150px white bold;
+    font-family: 'Open Sans', sans-serif;
+}
+#right-arrow p, #left-arrow p{
+ 
+    font-size: 100px ;
+}
+.inv{
+    background-color:black !important;
+}
+
+.circle{
+    position: relative;
+    margin-top: 50%;
+    background-color: white;
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+}
+#reset, #tournament, input[name='go'] {
+    /* position: absolute; */
+    z-index: 9999;
+    color: white;
+    border:none;
+    padding:15px;
+    background-color: rgba(3, 191, 156, 1);
+    margin: 0 10px 0 10px;
+}
+
+#reset:hover{
+    padding:15px;
+    background-color: rgba(57, 191, 166, 1);
+}
+
+input[type="checkbox"] {
+    margin-right: -1px;
+    width: 46px;
+    height: 46px;
+    color: white;
+}
+
+/* Color Theme Swatches in Hex */
+.Графический-дизайн-1-hex { color: #D92344; }
+.Графический-дизайн-2-hex { color: #010326; }
+.Графический-дизайн-3-hex { color: #23468C; }
+.Графический-дизайн-4-hex { color: #04BF9D; }
+.Графический-дизайн-5-hex { color: #39BFA7; }
+
+/* Color Theme Swatches in RGBA */
+.Графический-дизайн-1-rgba { color: rgba(216, 34, 68, 1); }
+.Графический-дизайн-2-rgba { color: rgba(0, 2, 38, 1); }
+.Графический-дизайн-3-rgba { color: rgba(35, 70, 140, 1); }
+.Графический-дизайн-4-rgba { color: rgba(3, 191, 156, 1); }
+.Графический-дизайн-5-rgba { color: rgba(57, 191, 166, 1); }
+
+/* Color Theme Swatches in HSLA */
+.Графический-дизайн-1-hsla { color: hsla(348, 72, 49, 1); }
+.Графический-дизайн-2-hsla { color: hsla(236, 96, 7, 1); }
+.Графический-дизайн-3-hsla { color: hsla(219, 60, 34, 1); }
+.Графический-дизайн-4-hsla { color: hsla(168, 96, 38, 1); }
+.Графический-дизайн-5-hsla { color: hsla(168, 53, 48, 1); }

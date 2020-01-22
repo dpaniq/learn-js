@@ -5,23 +5,24 @@ Ideas for Organizer: https://4brain.ru/blog/%D0%BE%D1%84%D0%BE%D1%80%D0%BC%D0%BB
 
 Futures:
    Easy:
+      * * * Add first CARD AS DETAIl (modulirotavj nazatie na pervij element taskdayNames)
       Append of all TITLE ARGUMENTS
    Average:
-      Resize td's higth th in dependence of display's resolution
-      Fix Progress bar
-      Delete chain or one task for today
-      All task (if they dont finished) go to the next day!
+      **** INTERNET Resize td's higth th in dependence of display's resolution
+
+      Delete chain or one task for today?
+      [Options:Switcher] All task (if they dont finished) go to the next day!
       
       Group [TASK FOR DAY]:
-         ALLTASK sort function
+         ALLTASK sort function?
          Page of taskday With CLOCKS show/hide empty clocks in
          Sort Functions and Task DAY. Separate
          Category Options ADD NEW TASK - Fix
    Hard:
-      Create repeat task? Monday Thuesday - Each time
-      Edit task page
-      Help Page with features
+      Create repeat task? Monday Thuesday - Each time 
+      Edit task page => kogda nazimaew menjaetjsa na SET VALUE (Esli pustoj ostavitj preznee znachenije, esli net zamenitj, sobratj object i sohranitj v bazu)
       Page of SETTINGS with on/off. (Would be nice)
+      One task for Group (ED)
       
       Group [HISTORY]:
          Make a hisotry Page
@@ -38,6 +39,7 @@ CSS Future:
       Separate input, button .... from css
 
    Hard:
+      Nasledovanie klassa
       Clear CSS Styles
 
 

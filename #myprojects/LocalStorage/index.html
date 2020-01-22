@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/task.css">
     <link rel="stylesheet" href="./css/calendar.css">
+    <link rel="stylesheet" href="./css/pages.css">
     </link>
 </head>
 
@@ -35,15 +36,13 @@
                     <option value="homework">HOMEWORK</option>
                     <option value="job">JOB</option>
                     <option value="meeting">MEETING</option>
-                    <!-- <input type="text" name="addcategorytask" id="" placeholder="Add new category"> -->
                 </select>
-            </div>
-
-            
-            <div>
+                <div>
+                    <input type="text" name="add_category" placeholder="Add new category">
+                </div>
                 
             </div>
-            
+
             <div>
                 <input type="datetime-local" name="task_timeStart">
                 <input type="datetime-local" name="task_timeFinish">
@@ -111,7 +110,7 @@
             </div>
             
             <div>
-                <select class="search_category hide" title="Hold CTRL for choose more then one category" multiple size=3>
+                <select class="search_category hide" title="Hold CTRL for choose more then one category" multiple size=3 o>
                     <option value="health">HEALTH</option>
                     <option value="sport">SPORT</option>
                     <option value="homework">HOMEWORK</option>
@@ -126,9 +125,44 @@
             
         </form>
 
-        <footer>
-            <span style="color:rgba(52, 188, 161, 1)">Dayor</span> developed <span style="color:rgba(52, 188, 161, 1)">dpaniq</span>
-            <p>2019</p>
-        </footer>
+    <footer>
+        <span style="color:rgba(52, 188, 161, 1)">Dayor</span> developed by<span style="color:rgba(52, 188, 161, 1)">dpaniq</span>
+        <p>2019</p>
+    </footer>
+
+    <!-- Pages -->
+    <div class="setting hide">
+        <div>
+            <label for="chain">Chain</label> 
+            <input type="checkbox" name="chain">
+            <label for="chain">Chain</label> 
+            <input type="checkbox" name="chain">
+            <label for="chain">Chain</label> 
+            <input type="checkbox" name="chain">
+            <label for="chain">Chain</label> 
+            <input type="checkbox" name="chain">
+            <label for="chain">Chain</label> 
+            <input type="checkbox" name="chain">
+            <label for="chain">Chain</label> 
+            <input type="checkbox" name="chain" o>
+        </div>
+    </div>
+
+    <div class="pagehelp hide">
+        <div>
+            <h3> Новинки </h3>
+            <p>Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum </p>
+            <p>Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum </p>
+            <p>Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum </p>
+            <h3> Functions </h3>
+            <p>Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum </p>
+            <p>Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum </p>
+            <p>Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum </p>
+            <h3> Oppart. </h3>
+            <p>Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum </p>
+            <p>Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum </p>
+            <p>Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum Lorum ipsum </p>
+        </div>
+    </div>
 </body>
 </html>

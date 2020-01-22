@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- <script src="main.js"></script> -->
+    <title>Document</title>
+</head>
+<body>
+    
+    <header>
+        <div><input type="button" id='reset' value='New game'></div>
+        <div><input type="checkbox" id="serves" name='serves'></div>
+        <!-- <div><input type="button" id="best-of" value='Best of *'></div> -->
+        <div><input type="button" id="tournament" value='Tournament'></div>
+    </header>
+
+    <div id='container'>
+        <div id='tournament-tab'>
+            <div>Games:</div>
+            <div><input type="input" name='number-of-games' value=1></div>
+            <div>Players:</div>
+            <div><input type="input" name='number-of-players' value=2></div>
+            <!-- <div>Добавить игрока:</div>
+            <div><input type="input" name='player'></div> -->
+            <div id='players-name'></div><br>
+            <input type='button' name='go' value='Go'>
+        </div>
+
+        <div id="score-board">
+            <div id="left-arrow">
+                <div class='circle'></div>
+            </div>
+            <div id='left'><p>0</p></div>
+            <div id='right'><p>0</p></div>
+
+            <div id="right-arrow">
+                <div class='circle inv'></div>
+            </div>
+        </div>
+        <div id='information-block'>
+            <div id='move-side'></div>
+            <div id='serves-counter'></div>
+            <div id='end-game'></div>
+            <div id='pairs'>
+                <div id='pair-now'></div>
+                <div id='pairs-done'></div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        
+    </footer>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>

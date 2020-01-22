@@ -1,0 +1,18 @@
+1. Tasks 
+    task_name: document.querySelector('[name="task_name"]').value || '',
+        task_description: document.querySelector('[name="task_description"]').value || '',
+        task_type: document.querySelector('[name="task_type').value,
+        task_category: selectedOption(document.querySelector('[name="task_category"]')) || [],
+        task_date: {
+            start: document.querySelector('[name="task_timeStart"]').value || new Date(),
+            finish: document.querySelector('[name="task_timeFinish"]').value || 0,
+        }
+    
+        // task_icon: document.querySelector('[name="task_name"]').value || '',
+    
+        // task_done: false, // if now > task_date.finish - done or cancel
+
+
+2. Options
+
+3. 

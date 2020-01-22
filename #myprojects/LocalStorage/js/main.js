@@ -7,6 +7,8 @@ window.addEventListener(`resize`, event => {
     document.querySelector('#calendar').style.height = window.innerHeight - 140 + 'px'
   });
 
+document.addEventListener('load', () => {document.querySelector('#calendar').style.height = window.innerHeight - 140 + 'px'}) // kogda zagruzitsa DOM virovnitj
+
 // let a = window.innerHeight
 // let a95 = parseInt(a * 85 / 100)
 
@@ -39,6 +41,9 @@ import {searchFormActiveted} from './search.js'
 //     taskAddition.classList.toggle('hide')
 
 // })
+
+
+
 let tclick_down = 0
 document.addEventListener('mousedown', () => {tclick_down = new Date().getTime()})
 
@@ -61,6 +66,9 @@ plusBtn.addEventListener('click', plusTaskAdderBtn)
 
 let searchBtn = document.querySelector('.searchTaskBtn')
 searchBtn.addEventListener('click', showSearchTaskForm)
+
+let helpBtn = document.querySelector('.helpBtn')
+helpBtn.addEventListener('click', openHelp)
 // Search ---------------------------------------------------------------------
 
 let searchType = document.querySelector('[name="search_type"]')
@@ -153,6 +161,12 @@ function showSearchTaskForm(event) {
     searchForm.classList.toggle('hide')
 }
 
+// Pages #####################################
+const pagehelp = document.querySelector('.pagehelp')
+function openHelp(event) {
+    console.log('OPEN/CLOSE')
+    pagehelp.classList.toggle('hide')
+}
 
 // Search functions #####################################
 
@@ -180,5 +194,23 @@ function chooseSearchType(event) {
 
 // Search <=- END -=>
 
+
+
+// Add Task Window
+
+let addcategory = document.querySelector('[name="add_category"]')
+addcategory.addEventListener('input', (event) => {
+    
+    let taskcategory = document.querySelector('[name="task_category"]')
+    
+    if (event.target.value ) {
+
+        for (let i = 0; i < taskcategory.options.length; i++) {
+            console.log(taskcategory.options[i].selected)
+        }
+        // document.querySelector('[name="task_category"]').setAttribute('') unfocused/unredable
+    }
+    
+})
 
 

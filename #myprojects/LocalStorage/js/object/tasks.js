@@ -63,6 +63,7 @@ export function showTasksNames (data = [], clean = true) {
         tskN_temp.setAttribute('class', 'tasksNames')
         tskN_temp.setAttribute('title', data[i].task_name)
         tskN_temp.setAttribute('name', data[i].task_name)
+        
         if (data[i].task_name.length > 10) {
             tskN_temp.textContent = data[i].task_name.slice(0, 11) + '...'
         } else {
@@ -70,9 +71,11 @@ export function showTasksNames (data = [], clean = true) {
         }
         
         taskDayNames.appendChild(tskN_temp)
+        if (i == 0) {
+            console.log('tut')
+            showTaskDetail(data[i])
+        }
     }
-
-    
 }
 
 export function showTaskDetail(task){
@@ -116,10 +119,7 @@ export function showTaskDetail(task){
 
     if (task.task_date.finish && task.task_date.start) {
         let progressbarOut = document.createElement('div')
-        progressbarOut.textContent = 'progress bar'
-        progressbarOut.style.width = 500 + 'px'
-        progressbarOut.style.height = 50 + 'px'
-        progressbarOut.style.backgroundColor = 'red'
+        progressbarOut.id = 'progressBar'
         let progressbarIn = document.createElement('div')
         let starttemp = new Date(task.task_date.start)
         let finishtemp = new Date(task.task_date.finish)
@@ -128,37 +128,19 @@ export function showTaskDetail(task){
 
         let x = (a, b, c = new Date()) => {
             if (new Date().getTime() < starttemp.getTime()) {
-                return [0,0]
-            }
-            // problem GREEN LINE INCREASE WITH EACH DAY
-            //  else if (new Date().getTime() < starttemp.getTime()) {}
-                
-            else {
-                let ba = b.getTime() - a.getTime() // время start до finish в ms
-                let na = c.getTime() - a.getTime() // now - start
-    
-    
-                let progressbarline = 500 / ba // width of detailtab (temp is 300)
-    
-                // console.group('S')
-                // console.log('a', a.getTime())
-                // console.log('b', b.getTime())
-                // console.log('n', c.getTime())
-                // console.log('raznica b-a', ba)
-                // console.log('raznica n-a', na)
-    
-                // console.groupEnd('S')
-                
-                return [progressbarline, na]
+                console.log('Less than start time', new Date().getTime(), starttemp.getTime())
+                return 0
+            } else if (new Date().getTime() > finishtemp.getTime()) {
+                console.log('More than start time', new Date().getTime(), finishtemp.getTime())
+                return 500
+            } else {
+                const fs = b.getTime() - a.getTime() // finish - start
+                const ns = c.getTime() - a.getTime() // now - start
+                return parseInt(500 * (ns * 100 / fs) / 100)
             }
         }
-        
-        let result = x(starttemp, finishtemp)
-   
-        progressbarIn.style.width = result[0] * result[1] + 'px'
-        progressbarIn.style.height = 30 + 'px'
-        progressbarIn.style.backgroundColor = 'green'
-        // progressbarIn.textContent = 'asdasd'
+        progressbarIn.style.width = x(starttemp, finishtemp) + 'px'
+        progressbarIn.style.height = 20 + 'px'
 
         progressbarOut.appendChild(progressbarIn)
         detailTab.appendChild(progressbarOut)
@@ -192,4 +174,14 @@ export function selectedOption(elem) {
         }
     }
     return select
+}
+
+
+
+
+
+// TASK EDIT FUNCTION
+
+export function taskEdit () {
+    
 }

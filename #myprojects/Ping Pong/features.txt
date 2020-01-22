@@ -1,0 +1,89 @@
+Объявляется турнир:
+    1. Окошко:
+        Указать количество игр [min=2]
+        Указать количество игроков [min=2]
+        Указать имена игроков
+        Нажать ОК
+        tournament = true
+
+    
+    2. В информационном окне: [if tournament = true]
+        Обнуляется счет
+        Объявляется играющая пара
+        Объявляется номер игры / Объявляется количество игр
+        
+        Function:
+            tournament.games
+            tournament.totalGames
+
+    3. Окно: Выиграша [Игрок 1 Счет Игрок 2]
+        Нажать Space для продолжения
+
+        Function:
+            // Who won thats...
+            tournament.GamesOut.['Player'] = +1:
+
+            if (tournament.games <= tournament.total.games) =>
+            Пункт номер 2
+
+            else 
+            Пункт номер 4
+    
+    4. Окно Окончание турнира
+        Нажать Enter для продолжения
+
+        Указать места согласно победам
+
+        Обнулит счет и все метки    
+
+
+
+
+
+
+Saved previous games in local. 
+
+
+Main menu:
+Simple game / Best of / Tournament
+
+Simple game:
+Obvious algorithm
+Save in games history
+
+Best of:
+Do While best of < 5 => do
+Obvious algorithm
+Best of - 1
+
+Save: when game is done:
+
+Tournament:
+Name 0
+Name 1
+Name 2
+Matches: 3 (each)
+
+Make a net: 0-1 1-2 2:0 random
+
+Do While net list < random net :
+Do while best of < matches
+Obvious algorithm
+Save in games history
+
+
+
+Save in games: (Json)
+Load
+Total games: 0
+Total serves: 0
+Total win row
+Total win strikes??
+
+
+
+
+do
+
+    smth
+while
