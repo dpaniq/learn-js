@@ -37,3 +37,8 @@ img {
     opacity: 1;
     left: 110%;
 }
+
+p {
+    margin: 0 200px 0 200px;
+    text-align: justify;
+}
