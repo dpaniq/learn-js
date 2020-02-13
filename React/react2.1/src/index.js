@@ -1,12 +1,12 @@
 import React from 'react'
 import { render } from 'react-dom'
 
-import Article from './Article'
+import ArticleList from './ArticlesList'
 import { articles } from './fixtures'
 
 function App () {
     return (
-        <Article article = { articles[0] }/>
+        <ArticleList articlelist = { articles }/>
   
     )
         

@@ -13,7 +13,6 @@ import React, { Component } from 'react'
 // }
 
 export default class Article extends Component {
-
     constructor(props) {
         super(props)
 
@@ -22,26 +21,23 @@ export default class Article extends Component {
         }
     }
 
-    
     render () {
+        // props get 'article'
+        const { article } = this.props
+        const { isOpen } = this.state
 
-
-        return (
+        return ( 
             <div>
-                <h3> { this.props.article.title } </h3>
-                <button onClick = { this.toggleOpen }>
-                    {this.state.isOpen ? 'Close' : 'Open' } </button>
+                <h3> { article.title } </h3>
+                <button onClick = { this.toggleOpen }> { isOpen ? 'Close' : 'Open' } </button>
                 {this.getBody()}
             </div>
         )
     }
 
     getBody (){
-
         if (!this.state.isOpen) return null
-        return <section> { this.props.article.text } </section>
-        
-            
+        return <section> { this.props.article.text } </section>     
     }
 
     toggleOpen = () => {
