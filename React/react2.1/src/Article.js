@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import Comments from './Comments'
 // export default function Article(props) { // functional component - simplest component
 
 //     const { article }  = props // деструктуризация
@@ -31,13 +31,19 @@ export default class Article extends Component {
                 <h3> { article.title } </h3>
                 <button onClick = { this.toggleOpen }> { isOpen ? 'Close' : 'Open' } </button>
                 {this.getBody()}
+                
             </div>
         )
     }
 
     getBody (){
+        const { article } = this.props
         if (!this.state.isOpen) return null
-        return <section> { this.props.article.text } </section>     
+        return ( 
+            <section>
+                { article.text } 
+                <Comments comment= {article.comments} />
+            </section> )    
     }
 
     toggleOpen = () => {
