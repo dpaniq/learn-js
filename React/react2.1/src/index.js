@@ -1,8 +1,8 @@
 import React from 'react'
 import { render } from 'react-dom'
 
-import ArticleList from './ArticlesList'
-import { articles } from './fixtures'
+import ArticleList from './components/ArticlesList'
+import { articles } from './data'
 
 function App () {
     return (
