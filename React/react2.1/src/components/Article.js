@@ -2,21 +2,24 @@ import React, { Component } from 'react'
 import CommentList from './CommentList'
 import PropTypes from 'prop-types'
 
-import toggleOpen from '../decorators/toggleOpen'
-
-
-
 class Article extends Component {
     static propTypes = {
         article : PropTypes.shape({
             id: PropTypes.string.isRequired,
+            date: PropTypes.string.isRequired,
             title: PropTypes.string.isRequired,
-            text: PropTypes.string
-        }).isRequired
+            text: PropTypes.string.isRequired,
+            comments: PropTypes.array
+        }).isRequired,
+
+        isOpen: PropTypes.bool.isRequired,
+        toggleOpen: PropTypes.func.isRequired
+        
     }
 
     render () {
         const { article, isOpen, toggleOpen } = this.props
+        console.log('From Article: ', article, isOpen, toggleOpen)
         return ( 
             <div>
                 <h3> { article.title } </h3>
@@ -37,8 +40,6 @@ class Article extends Component {
                 <CommentList comments= {article.comments} />
             </section> )    
     }
-
-
 }
 
-export default toggleOpen(Article)
+export default Article

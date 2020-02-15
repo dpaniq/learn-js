@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import Comment from './Comment'
 import toggleOpen from '../decorators/toggleOpen'
 
@@ -7,9 +8,13 @@ class CommentList extends Component {
         comments: []
     }
     
+    static propTypes = {
+        comments : PropTypes.array.isRequired
+    }
+
     render () {
-        // console.log(this.props)
         const {isOpen, toggleOpen} = this.props
+        console.log('From CommentList: ', this.props)
         const text = isOpen ? 'Hide comments' : 'Show comments'
 
         return (
@@ -22,7 +27,6 @@ class CommentList extends Component {
 
     getComments() {
         const {comments, isOpen} = this.props
-
         if (!isOpen) return null
         if (!comments.length) return <p>No comments yet!</p>
 
