@@ -19,7 +19,7 @@ class Article extends Component {
 
     render () {
         const { article, isOpen, toggleOpen } = this.props
-        console.log('From Article: ', article, isOpen, toggleOpen)
+        // console.log('From Article: ', article, isOpen, toggleOpen)
         return ( 
             <div>
                 <h3> { article.title } </h3>
@@ -39,6 +39,11 @@ class Article extends Component {
                 { article.text } 
                 <CommentList comments= {article.comments} />
             </section> )    
+    }
+
+    UNSAFE_componentWillUpdate (nextProps, nextState) {
+    
+        return nextProps.isOpen !== this.props.isOpen
     }
 }
 

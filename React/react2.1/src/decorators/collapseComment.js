@@ -9,6 +9,6 @@ export default (OriginalComponent) => class CollapseCommentComponent extends Rea
     }
 
     toggleOpenArticle = (idArticle) => this.setState({
-        openArticleId: idArticle == this.state.openArticleId ? null : idArticle
+        openArticleId: idArticle === this.state.openArticleId ? null : idArticle
     })
 }

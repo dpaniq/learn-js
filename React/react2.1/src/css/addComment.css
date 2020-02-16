@@ -1,0 +1,21 @@
+/* * {
+    margin: 5px 5px 5px 5px;
+    padding: 5px 10px;
+} */
+
+.addComment {
+    margin: 5px;
+    padding: 10px;
+    
+
+}
+
+.error{
+    border-radius: 5px;
+    margin: 5px;
+    padding: 10px;
+    border: 1px dotted rgb(202, 98, 98);
+    background-color: rgb(207, 159, 159);
+}
+
+

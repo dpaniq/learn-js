@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Comment from './Comment'
+import AddComment from './AddComment'
 import toggleOpen from '../decorators/toggleOpen'
 
 class CommentList extends Component {
@@ -14,7 +15,7 @@ class CommentList extends Component {
 
     render () {
         const {isOpen, toggleOpen} = this.props
-        console.log('From CommentList: ', this.props)
+        // console.log('From CommentList: ', this.props)
         const text = isOpen ? 'Hide comments' : 'Show comments'
 
         return (
@@ -32,6 +33,7 @@ class CommentList extends Component {
 
         return (
             <ul>
+                <AddComment />
                 { comments.map(comment => <li key = { comment.id }><Comment comment = {comment}/></li>) }
             </ul>
         )

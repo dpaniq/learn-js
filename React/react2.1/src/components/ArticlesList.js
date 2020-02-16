@@ -6,9 +6,12 @@ import collapseComment from '../decorators/collapseComment'
 
 class ArticleList extends Component {
 
+    
+
     render () {
         const {articlelist, openArticleId, toggleOpenArticle} = this.props
-        console.log('From ArticleList: ', this.props)
+        // console.log('From ArticleList: ', this.props)
+
 
         const articleElement = articlelist.map((article) => <li key = {article.id}>
             <Article 
