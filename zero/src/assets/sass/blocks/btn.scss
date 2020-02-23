@@ -1,0 +1,8 @@
+.btn {
+    border-radius: $btn-radius;
+    box-shadow: $box-shadow;
+
+    &:hover {
+        background-color: $pink;
+    }
+}
