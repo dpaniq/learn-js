@@ -12,6 +12,13 @@ body {
     font-size: 1rem;
 }
 
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+
 /* Bootstrap */
 
 @import "../../../node_modules/bootstrap/scss/bootstrap.scss";
