@@ -2,7 +2,14 @@
 
 /* Default styles */
 body {
-    margin: 0px;
+    margin: 0;
+
+    font-size: 15px;
+
+    font-family: 'Montserrat', sans-serif;
+    color: $black;
+
+    font-size: 1rem;
 }
 
 /* Bootstrap */
