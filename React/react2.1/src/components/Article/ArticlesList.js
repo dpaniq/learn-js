@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Article from './Article'
-import collapseComment from '../decorators/collapseComment'
+import collapseComment from '../../decorators/collapseComment'
 
 
 class ArticleList extends Component {
