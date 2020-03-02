@@ -1,0 +1,15 @@
+{
+  "name": "yesbabel",
+  "version": "0.0.1",
+  "description": "babel file",
+  "main": "index.js",
+  "scripts": {
+    "xo": "babel src -d lib -w"
+  },
+  "author": "dpaniq",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4"
+  }
+}
