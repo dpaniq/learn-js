@@ -1,0 +1,296 @@
+css:
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    background-color: #fff;
+    color: #333;
+}
+
+h2 {
+    border-bottom: 3px solid #dc3545;
+    margin-bottom: 3rem;
+    line-height: 5rem;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(27, 84, 85);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    width: 100%;
+}
+
+.btn {
+    display: inline-block;
+    background: #333333;
+    color: #fff;
+    padding: 0.4rem 1.3rem;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    margin-right: 0.5rem;
+    transition: opacity 0.2s ease-in;
+    outline: none;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+
+    &:disabled {
+        background: #ccc;
+        color: #000;
+        cursor: not-allowed;
+    }
+
+    &:hover {
+        color: white;
+    }
+}
+
+.btn.btn-danger {
+    background: #dc3545;
+    color: #fff;
+}
+
+.form-control {
+    display: block;
+    margin-top: 0.3rem;
+    margin-bottom: .5rem;
+
+    label {
+        display: block;
+        font-weight: bold;
+        font-size: 1rem;
+        margin-bottom: .5rem;
+    }
+
+    input {
+        margin-bottom: 0;
+    }
+
+    .validation {
+        color: red;
+    }
+}
+
+.card {
+    padding: 1rem;
+    border: #ccc 1px dotted;
+    margin: 0.7rem 0;
+
+    p {
+        display: flex;
+        justify-content: space-between;
+
+        span.completed {
+            text-decoration: line-through;
+        }
+    }
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+input,
+select,
+textarea {
+    display: block;
+    width: 100%;
+    padding: 0.4rem;
+    font-size: 1.2rem;
+    border: 1px solid #ccc;
+    margin-bottom: 1rem;
+}
+
+hr {
+    margin: .5rem 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7rem 2rem;
+    z-index: 1;
+    width: 100%;
+    opacity: 0.9;
+    margin-bottom: 1rem;
+    background: #dc3545;
+    color: #fff;
+
+    ul {
+        display: flex;
+
+        li.active a {
+            font-weight: bold;
+            color: white;
+            cursor: default;
+        }
+    }
+
+    a {
+        color: #fff;
+        padding: 0.45rem;
+        margin: 0 0.25rem;
+    }
+}
+
+DATA:COMPONENT:
+
+
+
+li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-bottom: 1px dotted #e04a58;
+
+    padding: 5px 10px;
+    div {
+        text-align: center;
+    }
+}
+
+UPDATE:COMPONENT:
+select {
+    width: 200px;
+    heigth: 100px;
+}
+
+.stay-close {
+    display: flex;
+    flex-direction: row;
+
+    align-self: flex-end;
+}
+
+
+
+HTML
+
+CREATE:
+
+<div>
+    <div>
+        <h2>Create</h2>
+    </div>
+
+    <form>
+        <input type="text" placeholder="Name"/>
+        <input type="text" placeholder="Value"/>
+        <button class="btn" type="submit">Create</button>
+    </form>
+</div>
+
+
+UPDATE:
+
+<div>
+    <div>
+        <h2>Update</h2>
+    </div>
+
+    <form class="form-control" method="#" action="">
+
+
+        <div class="stay-close">
+            <select name="" id="">
+                <option
+                    *ngFor="let element of appService.data"
+                    value="{{ element.value }}">
+                    {{ element.title }}
+                </option>
+            </select>
+            <button class="btn btn-danger">&times;</button>
+        </div>
+
+        <div>
+            <label>Title:</label>
+            <input type="text" name="title">
+        </div>
+
+        <div>
+            <label>Value:</label>
+            <input type="text" name="value">
+        </div>
+
+
+    </form>
+
+        <div>Saving...</div>
+</div>
+
+
+
+DATA:
+        <h2>Create</h2>
+    </div>
+
+    <ul>
+        <li *ngFor="let data of appService.data">
+            <div>{{ data.id }}</div>
+            <div><strong>{{ data.title | uppercase }}</strong></div>
+            <div>{{ data.value }}</div>
+            <div><small>{{ data.createdAt | date }}</small></div>
+        </li>
+    </ul>
+</div>
+
+
+SERVICE:
+import { Injectable } from '@angular/core';
+
+
+interface IData {
+    id: number;
+    title: string;
+    value: number;
+    createdAt: Date;
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AppService {
+
+  data: IData[] = [
+      {id: 1, title: 'usd', value: 0.75, createdAt: new Date()},
+      {id: 2, title: 'rub', value: 0.65, createdAt: new Date()},
+      {id: 3, title: 'lat', value: 0.66, createdAt: new Date()},
+      {id: 4, title: 'cad', value: 0.34, createdAt: new Date()},
+      {id: 5, title: 'zte', value: 0.38, createdAt: new Date()},
+      {id: 6, title: 'grr', value: 0.38, createdAt: new Date()},
+      {id: 7, title: 'gbp', value: 0.38, createdAt: new Date()},
+
+  ];
+
+  constructor() { }
+
+}
+
+IN COMPONENTS TS:
+ constructor(public appService: AppService) { }
