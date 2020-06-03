@@ -40,11 +40,18 @@ function createBackend(name) {
     const programmer = createProgrammer(name)
     return {
         ...programmer,
-        ...canAngular(programmer)
+        ...canNodejs(programmer)
     }
 }
 
-
+function createFullStack(name) {
+    const programmer = createProgrammer(name)
+    return {
+        ...programmer,
+        ...canNodejs(programmer),
+        ...canAngular(programmer)
+    }
+}
 
 const alone = createProgrammer('mongo')
 console.log(alone)
@@ -52,3 +59,13 @@ console.log(alone)
 const frontend = createFrontend('Frontend')
 frontend.code()
 frontend.angular()
+
+const backend = createBackend('Backend')
+backend.code()
+backend.nodejs()
+
+
+const fullstack = createFullStack('Fullstack')
+fullstack.code()
+fullstack.angular()
+fullstack.nodejs()

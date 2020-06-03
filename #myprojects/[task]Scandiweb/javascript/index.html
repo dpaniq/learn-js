@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="src/css/style.css">
+
+
+
+    <title>Scandiweb[Task]</title>
+    <script src="src/js/someelse.js"></script>
+</head>
+<body>
+    <!-- The Modal -->
+    <div class="modal">
+
+        <!-- Modal content -->
+
+            <div class="modal-content">
+                <div class="close">&times;</div>
+                    <h2>Create Product</h2>
+                    <form>
+                        <input type="text" name="sku" value="" placeholder="SKU">
+                        <input type="text" name="name" value="" placeholder="Price">
+                        <select name="select">ceholder="Name">
+                            <input type="text" name="price" value="">
+                            <option value="0">Dvd</option>
+                            <option value="1">Book</option>
+                            <option value="2">Furniture</option>
+                        </select>
+                    </form>
+
+                    <div class="attributes">
+                        <form name="Dvd" method="get" action="/backend.php">
+                            <input type="text" name="size" value="0" placeholder="0 (size mb)">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam consequatur corporis ducimus magni quae quaerat quos repellat, sequi tempora voluptate.</p>
+                        </form>
+                        <form name="Book">
+                            <input type="text" name="weight" value="0" placeholder="0.00 (weight kg)">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab amet aspernatur atque commodi delectus dolore dolorem eligendi eveniet hic iure laboriosam laudantium maxime minima modi necessitatibus, officia pariatur quaerat quod ratione recusandae reiciendis repellendus tempore totam voluptate voluptates voluptatibus voluptatum?</p>
+                        </form>
+                        <form name="Furniture">
+                            <input type="text" name="width" value="0" placeholder="0 (width cm)">
+                            <input type="text" name="height" value="0" placeholder="0 (height cm)">
+                            <input type="text" name="length" value="0" placeholder="0 (length cm)">
+                            <p>Please provide dimensions in HxWxL format</p>
+                        </form>
+                    </div>
+            </div>
+    </div>
+
+    <header>
+        <h1>Products List</h1>
+
+<!--        Todo Menu here-->
+
+    </header>
+
+    <div class="container">
+
+
+        <div class="product col s3">
+<!--            Todo click on product make background grey it mean the element is Checked-->
+            <input type="checkbox" hidden>
+            <h6>JVC2020</h6>
+            <h4>Acme Disc</h4>
+            <em>$ 80.00</em><br>
+            <strong>Size: 700 MB</strong>
+            <div class="product__product-backgound"></div>
+        </div>
+
+        <div class="product col s3 plus">
+            <!--            Todo click on product make background grey it mean the element is Checked-->
+
+            <strong>+</strong>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Lorem ipsum dolor sit.</h5>
+                    <p class="grey-text text-lighten-4">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid architecto assumenda commodi corporis dicta dolorum earum et eum excepturi facere fugiat in inventore labore maxime perspiciatis quaerat repellendus, rerum sint. Aperiam at consequatur, cumque cupiditate dolorem doloremque doloribus dolorum, error ex expedita fugiat, incidunt nostrum perspiciatis quam qui quibusdam quidem!
+                    </p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Navigation</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#">Home</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#">Add</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#">Update</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#">Remove</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2020 Bogdans Gromovs for <strong> Scandiweb</strong>
+            </div>
+        </div>
+    </footer>
+    <script src="src/main.js" type="module"></script>
+</body>
+</html>
