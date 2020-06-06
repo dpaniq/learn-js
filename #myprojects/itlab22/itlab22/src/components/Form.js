@@ -1,23 +1,34 @@
 import React, {useState} from "react";
+import { connect } from "react-redux"
+
+import { addRecord } from '../redux/actions'
 // import App from "./App";
 
-
-import data from './assets/data.json'
+import data from '../assets/data.json'
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+const mapStateToProps = state => {
+    return {
+        listRecords: state
+    }
+}
+
+const mapDispatchToProps = {
+    addRecord
+}
 
 // function Form({index, addField}) {
-function Form({addField}) {
+function Form({listRecords, addRecord}) {
+    // console.log('listRecords', listRecords)
 
     const randomIndex = () => Math.round(Math.random() * 100)
 
     const [flag, setFlag] = useState(true)
 
     const [user, setUser] = useState(data[0])
-
 
     const randomUser = () => {
         setFlag(!flag)
@@ -26,21 +37,18 @@ function Form({addField}) {
 
     const submitForm = (event) => {
         event.preventDefault()
-        console.log('EVENT', event.type)
-
-        const inputs = event.target.querySelectorAll("input");
+        const inputs = event.target.querySelectorAll("input")
 
         const result = Object.values(inputs).reduce((acc, current) => {
-            console.log('name', current.name, 'value', current.value)
             acc[current.name] = current.value
             return acc
         }, {})
 
-        addField(result)
+        // Zero -         \/ should be dynamically value
+        addRecord(result, Math.round(Math.random() * 100))
+        // addRecord(result, 0)
         setUser(data[randomIndex()])
     }
-
-    // const [placeholder, setPlaceholder] = useState('') // placeholder, setPlaceholder mb set placeholder
 
     return (
         <form onSubmit={submitForm}>
@@ -64,4 +72,4 @@ function Form({addField}) {
     )
 }
 
-export default Form
+export default connect(mapStateToProps, mapDispatchToProps)(Form)

@@ -1,47 +1,33 @@
-import React, {useState} from 'react';
 // import logo from './logo.svg';
 // import './App.css';
-import Form from './Form.js'
-import Table from "./Table"
 
-function App() {
-
-    // states
-    const [table, setTable] = useState([])
+import React from 'react';
+import {connect} from 'react-redux'
 
 
-    // const addF =
-
-    // const addField = () => {
-    //
-    //     console.log(1333, formValues)
-    //     // const values = FormValues
-    //     // setTable([
-    //     //         ...table,
-    //     //         {
-    //     //             1: {name: values.name, surname: values.surname, age: values.age, city: values.city}
-    //     //         }
-    //     //
-    //     //     ]
-    //     // )
-    // }
+import Form from './components/Form.js'
+import Table from "./components/Table"
 
 
-    const addField = (obj) => {
-        setTable([
-            ...table,
-            {
-                ...obj
-            }
-        ])
+const mapStateToProps = state => {
+    return {
+        tables: state.table
     }
+}
+
+function App({tables}) {
+    console.log('TABLES MEGA SINCE', tables)
 
     return (
         <React.Fragment>
-            <Form addField={addField}/>
-            {[1].map((form, id) => <Table key={id} fields={table}/>)  }
+            <Form/>
+            {Object.entries(tables).map((table, id) => {
+                return (
+                    <Table key={id} id={table[0]} fields={table[1]}/>
+                )
+            })}
         </React.Fragment>
     );
 }
 
-export default App;
+export default connect(mapStateToProps, null)(App);
