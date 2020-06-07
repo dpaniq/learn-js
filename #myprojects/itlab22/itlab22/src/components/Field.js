@@ -1,27 +1,46 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-function Fields({id, field}) {
+import { changeActiveTable, editRecord, deleteRecord } from '../redux/actions'
+
+function Fields({table, id, field, editRecord, deleteRecord}) {
 
 
-    const edit = (x) => {
 
-        const form = document.querySelectorAll()
-        console.log()
-        console.log(Math.random(), x)
+    const handleEditRecord = (event) => {
+        const field = event.target.parentNode.getAttribute('data-field-index')
+        editRecord({table, field})
+    }
+
+    const handleDeleteRecord = (event) => {
+        const field = event.target.parentNode.getAttribute('data-field-index')
+        deleteRecord({table, field})
     }
 
     return (
-        <tr data-field-index={id}>
+        <tr>
             <td>{field.name}</td>
             <td>{field.surname}</td>
             <td>{field.age}</td>
             <td>{field.city}</td>
-            <td>
-                <button type="button" onClick={() => edit(id)}>Edit</button>
-                <button type="button">Delete</button>
+            <td data-field-index={id}>
+                <button type="button" onClick={handleEditRecord}>Edit</button>
+                <button type="button" onClick={handleDeleteRecord}>Delete</button>
             </td>
         </tr>
     )
 }
 
-export default Fields
+const mapStateToProps = state => {
+    return {
+        currentTable: state.table.activeTable
+    }
+}
+
+const mapDispatchToProps = {
+    changeActiveTable,
+    editRecord,
+    deleteRecord
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Fields)

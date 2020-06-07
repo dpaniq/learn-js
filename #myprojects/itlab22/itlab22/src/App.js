@@ -10,18 +10,19 @@ import Table from "./components/Table"
 
 
 const mapStateToProps = state => {
+    console.log('APP.js STATE', state)
     return {
-        tables: state.table
+        tables: Object.entries(state.table.listTables)
     }
 }
 
 function App({tables}) {
-    console.log('TABLES MEGA SINCE', tables)
+    console.log('state.listTables', tables)
 
     return (
         <React.Fragment>
             <Form/>
-            {Object.entries(tables).map((table, id) => {
+            {tables.map((table, id) => {
                 return (
                     <Table key={id} id={table[0]} fields={table[1]}/>
                 )

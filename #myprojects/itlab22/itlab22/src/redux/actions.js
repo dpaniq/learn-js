@@ -1,9 +1,10 @@
 import {
     ADD_TODO, TOGGLE_TODO, SET_FILTER,     // new
     ADD_RECORDS,
-    // EDIT_RECORDS,
-    // DELETE_RECORDS,
+    EDIT_RECORDS,
+    DELETE_RECORDS,
     // COPY_TABLE
+    CHANGE_ACTIVE_TABLE
 } from "./actionTypes";
 
 let nextTodoId = 0;
@@ -27,9 +28,23 @@ export const setFilter = filter => ({type: SET_FILTER, payload: {filter}});
 
 
 // new
-
 export const addRecord = (record, table) => ({
     type: ADD_RECORDS,
     table,
     payload: record
-});
+})
+
+export const editRecord = (eRecord) => ({
+    type: EDIT_RECORDS,
+    payload: eRecord
+})
+
+export const deleteRecord = (dRecord) => ({
+    type: DELETE_RECORDS,
+    payload: dRecord
+})
+
+export const changeActiveTable = (table) => ({
+    type: CHANGE_ACTIVE_TABLE,
+    payload: table
+})
