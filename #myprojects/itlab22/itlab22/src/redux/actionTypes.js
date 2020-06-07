@@ -2,11 +2,14 @@ const ADD_TODO = "ADD_TODO";
 const TOGGLE_TODO = "TOGGLE_TODO";
 const SET_FILTER = "SET_FILTER";
 
+// new
 const ADD_RECORDS = 'ADD_RECORDS'
 const EDIT_RECORDS = 'EDIT_RECORDS'
 const DELETE_RECORDS = 'DELETE_RECORDS'
 
 const COPY_TABLE = 'COPY_TABLE'
+
+const CHANGE_ACTIVE_TABLE = 'CHANGE_ACTIVE_TABLE'
 
 export {
     ADD_TODO,
@@ -14,8 +17,13 @@ export {
     SET_FILTER,
 
     // new
+
+    COPY_TABLE,
+
+    // used
     ADD_RECORDS,
     EDIT_RECORDS,
     DELETE_RECORDS,
-    COPY_TABLE
+
+    CHANGE_ACTIVE_TABLE
 }

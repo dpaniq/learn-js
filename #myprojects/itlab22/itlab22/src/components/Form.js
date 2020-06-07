@@ -20,7 +20,6 @@ const mapDispatchToProps = {
     addRecord
 }
 
-// function Form({index, addField}) {
 function Form({listRecords, addRecord}) {
     // console.log('listRecords', listRecords)
 
@@ -45,8 +44,8 @@ function Form({listRecords, addRecord}) {
         }, {})
 
         // Zero -         \/ should be dynamically value
-        addRecord(result, Math.round(Math.random() * 100))
-        // addRecord(result, 0)
+        // addRecord(result, Math.round(Math.random() * 100))
+        addRecord(result, 0)
         setUser(data[randomIndex()])
     }
 
