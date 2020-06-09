@@ -1,3 +1,5 @@
+# 1. npm i (install) - install dependencies
+# 2. npm start - to run project
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

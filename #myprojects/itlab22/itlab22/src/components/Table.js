@@ -1,46 +1,58 @@
 import React from "react";
 import Fields from './Field'
 import {connect} from "react-redux";
+import { motion } from 'framer-motion'
 
-import { changeActiveTable } from '../redux/actions'
+import { copyTable, deleteTable} from '../redux/actions'
 
-function Table({id, fields, changeActiveTable, currentTable}) {
-
-    console.log('FIELDS!!!', fields)
-    console.log('currentTable!!!', currentTable)
-
-
-    const changeTable = (event) => {
-        // if (activeTable)
-
-        // i dont need becouse single table has a event on it
-
-        changeActiveTable(event.currentTarget.getAttribute('data-index'))
-    }
+function Table({id, table, copyTable, deleteTable}) {
+    const handleCopyTable = () => copyTable(id)
+    const handleDeleteTable = () => deleteTable(id)
 
     return (
-        <table data-index={id} style={{width: '100%', textAlign: 'center', border: '1px solid #ccc'}} onClick={changeTable}>
-            <thead>
-            <tr>
-                <th>Name:</th><th>Surname:</th><th>Age:</th><th>City:</th><th>Action:</th>
-            </tr>
-            </thead>
-            <tbody>
-                    {/* todo bad nameing props*/}
-                {fields.map((field, key) => <Fields key={key} table={id} id={key} field={field} /> )}
-            </tbody>
-        </table>
+        <React.Fragment>
+            <motion.table data-index={id}
+                          initial={{ scale: 0 }}
+                          animate={{ rotate: 360, scale: 1}}
+                          whileTap={{ scale: 0.95 }}
+                          transition={{
+                              type: "spring",
+                              stiffness: 200,
+                              damping: 20
+                          }}
+            >
+                <thead>
+                <tr>
+                    <th>Name</th><th>Surname</th><th>Age</th><th>City</th><th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {table[id].map((field, key) => <Fields key={key} id={key} table={id} field={field} />)}
+                </tbody>
+                <tfoot className="table__action">
+                    <tr>
+                        <td>
+                            <button type="button" onClick={handleCopyTable}>&#x2398;Copy</button>
+                            { id === '0' ? '' : <button type="button" className="remove" onClick={handleDeleteTable}>&#10006;</button>}
+                        </td>
+                    </tr>
+                </tfoot>
+            </motion.table>
+        </React.Fragment>
+
     )
 }
 
 const mapStateToProps = state => {
     return {
-        currentTable: state.table.activeTable
+        currentTable: state.table.activeTable, // ???????
+        table: state.table.listTables
     }
 }
 
 const mapDispatchToProps = {
-    changeActiveTable
+    copyTable,
+    deleteTable
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Table)

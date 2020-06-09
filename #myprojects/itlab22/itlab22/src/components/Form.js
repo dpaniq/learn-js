@@ -1,9 +1,7 @@
 import React, {useState} from "react";
-import { connect } from "react-redux"
-
-import { addRecord } from '../redux/actions'
-// import App from "./App";
-
+import {connect} from "react-redux"
+import {addRecord, editRecord} from '../redux/actions'
+import {onlyTextInput, onlyIntegerInput, checkEmptyInput} from '../assets/validate'
 import data from '../assets/data.json'
 
 function capitalizeFirstLetter(string) {
@@ -12,63 +10,72 @@ function capitalizeFirstLetter(string) {
 
 const mapStateToProps = state => {
     return {
-        listRecords: state
+        editMode: state.table.editMode,
     }
 }
 
 const mapDispatchToProps = {
-    addRecord
+    addRecord,
+    editRecord
 }
 
-function Form({listRecords, addRecord}) {
-    // console.log('listRecords', listRecords)
-
+function Form({editMode, addRecord, editRecord}) {
     const randomIndex = () => Math.round(Math.random() * 100)
-
     const [flag, setFlag] = useState(true)
-
     const [user, setUser] = useState(data[0])
 
-    const randomUser = () => {
+    const handleRandomUser = (event) => {
+        event.target.parentNode.reset()
         setFlag(!flag)
         setUser(data[randomIndex()])
     }
 
-    const submitForm = (event) => {
+    const handleSubmitForm = (event) => {
         event.preventDefault()
         const inputs = event.target.querySelectorAll("input")
-
         const result = Object.values(inputs).reduce((acc, current) => {
             acc[current.name] = current.value
             return acc
         }, {})
 
-        // Zero -         \/ should be dynamically value
-        // addRecord(result, Math.round(Math.random() * 100))
-        addRecord(result, 0)
-        setUser(data[randomIndex()])
+
+        if (editMode.flag) {
+            if (checkEmptyInput(result)) {
+                editRecord(result)
+                event.target.reset()
+            }
+        } else {
+            if (checkEmptyInput(result)) {
+                addRecord(result, 0) // or addRecord(result, Math.round(Math.random() * 100))
+                event.target.reset()
+                setUser(data[randomIndex()])
+            }
+        }
     }
 
+    const editUser = Object.keys(editMode.recordObj).length ? editMode.recordObj : user
+
     return (
-        <form onSubmit={submitForm}>
+        <form onSubmit={handleSubmitForm} className={"Form"}>
 
             {/* Dynamic object output */
-            Object.keys(user).map((key, index) => {
-                const defaultPlaceholder = capitalizeFirstLetter(key)
-                return <input key={index}
-                              type="text"
-                              name={key}
-                              placeholder={defaultPlaceholder}
-                              defaultValue={flag ? '' : user[key]}
-                              onFocus={event => event.target.placeholder = ''}
-                              onBlur={event => event.target.placeholder = defaultPlaceholder}
-                />
-            })}
-
-            <button type='submit'>Add</button>
-            <button type="button" onClick={randomUser}>Random user</button>
+                Object.keys(editUser).map((key, index) => {
+                    const defaultPlaceholder = capitalizeFirstLetter(key)
+                    return <input key={index}
+                                  type="text"
+                                  name={key}
+                                  placeholder={defaultPlaceholder}
+                                  defaultValue={flag ? '' : editUser[key]}
+                                  onChange={key === 'age' ? onlyIntegerInput : onlyTextInput}
+                                  onFocus={event => event.target.placeholder = ''}
+                                  onBlur={event => event.target.placeholder = defaultPlaceholder}
+                    />
+                })}
+            <button type='submit'>{editMode.flag ? 'Edit' : 'Add'}</button>
+            <button type="button" onClick={handleRandomUser}>Random user</button>
         </form>
     )
+
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Form)

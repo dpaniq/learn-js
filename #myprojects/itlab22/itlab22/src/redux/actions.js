@@ -1,50 +1,32 @@
 import {
-    ADD_TODO, TOGGLE_TODO, SET_FILTER,     // new
-    ADD_RECORDS,
-    EDIT_RECORDS,
-    DELETE_RECORDS,
-    // COPY_TABLE
-    CHANGE_ACTIVE_TABLE
+    ADD_RECORD,
+    EDIT_RECORD,
+    DELETE_RECORD,
+    COPY_TABLE,
+    DELETE_TABLE,
 } from "./actionTypes";
 
-let nextTodoId = 0;
-
-export const addTodo = content => ({
-    type: ADD_TODO,
-    payload: {
-        id: ++nextTodoId,
-        content
-    }
-});
-
-export const toggleTodo = id => ({
-    type: TOGGLE_TODO,
-    payload: {id}
-});
-
-export const setFilter = filter => ({type: SET_FILTER, payload: {filter}});
-
-
-
-
-// new
 export const addRecord = (record, table) => ({
-    type: ADD_RECORDS,
+    type: ADD_RECORD,
     table,
     payload: record
 })
 
 export const editRecord = (eRecord) => ({
-    type: EDIT_RECORDS,
+    type: EDIT_RECORD,
     payload: eRecord
 })
 
 export const deleteRecord = (dRecord) => ({
-    type: DELETE_RECORDS,
+    type: DELETE_RECORD,
     payload: dRecord
 })
 
-export const changeActiveTable = (table) => ({
-    type: CHANGE_ACTIVE_TABLE,
+export const copyTable = (table) => ({
+    type: COPY_TABLE,
+    payload: table
+})
+export const deleteTable = (table) => ({
+    type: DELETE_TABLE,
     payload: table
 })

@@ -1,72 +1,91 @@
 import {
-    // new
-    ADD_RECORDS,
-    EDIT_RECORDS,
-    // DELETE_RECORDS,
-    CHANGE_ACTIVE_TABLE,
-    DELETE_RECORDS
-    
+    ADD_RECORD,
+    EDIT_RECORD,
+    DELETE_RECORD,
+    COPY_TABLE,
+    DELETE_TABLE,
 } from '../actionTypes'
 
 const initialState = {
+    listTables: {},
     activeTable: '0',
-    editMode: {flag: false, table: 0, field: 0},
-    listTables: {}
+    editMode: {flag: false, table: 0, record: 0, recordObj: {}}
 }
 
 export default function (state = initialState, action) {
 
-console.log('!!!!action.type', action.type)
-
     switch (action.type) {
-        case ADD_RECORDS: {
-            
-            const stateCurrentTable = state.listTables[action.table] ? state.listTables[action.table] : [] 
-            // console.log('stateCurrentTable', stateCurrentTable)
-            
+        case ADD_RECORD: {
+            const stateCurrentTable = state.listTables[action.table] ? state.listTables[action.table] : []
             const insideTable = {[action.table]: [...stateCurrentTable, action.payload]}
-            // console.log('insideTable', insideTable)
-
-            const updateListTables = {...state.listTables, ...insideTable}
-            // console.log('updateListTables', updateListTables)
-
-            const listTables = {...updateListTables}
-            // console.log('listTables', listTables)
+            const listTables = {...state.listTables, ...insideTable}
 
             return {...state, listTables}
+        }
+
+        case EDIT_RECORD: {
+            if (action.payload.flag) {
+                const {table, record} = {...action.payload}
+                const editMode = {flag: true, table: table, record:record, recordObj: state.listTables[table][record]}
+
+                return {...state, editMode}
+            }
+
+            const [table, record] = [state.editMode.table, state.editMode.record]
+            const editMode = {flag: false, table: 0, record: 0, recordObj: {}}
+            const listTables = {...state.listTables}
+            listTables[table][record] = action.payload
+
+            return {...state, listTables, editMode, state}
 
         }
 
-        case EDIT_RECORDS: {
-            console.log(EDIT_RECORDS, action.payload)
-            return []
+        case DELETE_RECORD: {
+            const {table, record} = {...action.payload}
+            const listTables = {...state.listTables}
+
+            listTables[table] = listTables[table].filter((_, recordNum) => {
+                return recordNum !== record
+            })
+
+            return {...state, listTables}
         }
 
-        case DELETE_RECORDS: {
-            console.group("Delete")
-            const {table, field} = {...action.payload}
-            console.log(DELETE_RECORDS, table, field)
+        case COPY_TABLE: {
+            // insert copied table under original one
+            const copyTableNum = parseInt(action.payload)
+            const listTables = Object.entries({...state.listTables}).reduce((acc, previous) => {
+                const tableNum = parseInt(previous[0])
+                const container = previous[1]
 
-            const listT = {...state.listTables}
+                if (tableNum < copyTableNum){
+                    acc[tableNum] = [...container]
+                } else if (tableNum > copyTableNum) {
+                    acc[tableNum + 1] = [...container]
+                } else {
+                    acc[tableNum] = [...container]
+                    acc[tableNum + 1] = [...container]
+                }
 
-            console.log('LIST!!!', listT )
+                return acc
+            }, {})
 
-            const changeTableRecord = listT[table].filter((_, record) => record.toString() !== field)
-
-            listT[table] = changeTableRecord
-
-            console.log('LIST LIST LIST :', listT)
-            return {...state, listTables: {...listT}}
-            console.groupEnd("Delete")
-
+            return {...state, listTables}
         }
 
-        case CHANGE_ACTIVE_TABLE: {
-            console.log('!!!CHANGED TABLE', state, action.payload)
-            return {...state, ['activeTable']: action.payload}
-            
-        }
+        case DELETE_TABLE: {
+            const table = action.payload
+            const listTables = {...state.listTables}
+            const updateListTables = Object.keys(listTables).reduce((acc, tableNum) => {
+                if (tableNum !== table) {
+                    acc[tableNum] = listTables[tableNum]
+                    return acc
+                }
+                return acc
+            }, {})  
 
+            return {...state, listTables: {...updateListTables}}
+        }
         default: return state;
     }
 }

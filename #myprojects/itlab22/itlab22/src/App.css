@@ -1,38 +1,126 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background: #74ded4;
+  background: radial-gradient(circle, #74ded4 0%, #74c3de 100%);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#root {
+  position: relative;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+form {
+  margin: 0 auto !important;
+  top: 0;
+  position: fixed;
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  z-index: 9999;
+}
+form > input, form button {
+  font-size: 1.6em;
+  padding: 0.5em;
+  width: 100%;
+}
+form button {
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+section.tables {
+  margin-top: 6em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
+  flex-wrap: wrap;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+table {
+  position: relative;
+  padding: 0.4em;
+  margin: 0.5em 1em 2em;
+  background: white;
+  border-spacing: 0;
+  width: 25%;
+  -webkit-box-shadow: 0 10px 12px -4px #6b086b;
+  -moz-box-shadow: 0 10px 12px -4px #6b086b;
+  box-shadow: 0 10px 12px -4px #6b086b;
+}
+table .table__action {
+  position: absolute;
+  top: -1.5em;
+  right: 0;
+  background-color: white;
+}
+table .table__action button {
+  border: 0;
+  font-weight: 900;
+  background: white;
+}
+table button {
+  padding: 0.3em 0.6em;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+table button:hover {
+  background: #ccc;
+}
+table > thead th {
+  padding: 0.2em;
+  text-align: left;
+}
+table > tbody td {
+  padding: 0.2em;
+  margin: 0.2em;
+}
+table > tbody tr:nth-child(2n) {
+  background: rgba(204, 204, 204, 0.4);
+}
+table .remove {
+  color: #c20808;
+}
+
+@media only screen and (max-width: 1200px) {
+  form {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
-  to {
-    transform: rotate(360deg);
+  form > input, form button {
+    font-size: 1.2em;
+    padding: 0.5em;
+  }
+
+  section.tables {
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  table {
+    margin: 1.5em 0;
+    width: 100%;
+  }
+  table .table__action {
+    top: -2em;
+  }
+  table button {
+    padding: 0.8em 0.8em;
+  }
+  table > tbody td {
+    padding: 0.4em;
+    margin: 0.4em;
   }
 }
+
+/*# sourceMappingURL=App.css.map */
