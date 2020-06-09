@@ -45,7 +45,7 @@ function Table({id, table, copyTable, deleteTable}) {
 
 const mapStateToProps = state => {
     return {
-        currentTable: state.table.activeTable, // ???????
+        currentTable: state.table.activeTable,
         table: state.table.listTables
     }
 }
