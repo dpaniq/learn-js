@@ -1,0 +1,20 @@
+<!-- The Modal -->
+<div class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="close">&times;</div>
+        <h2>Create Product</h2>
+        <form method="POST">
+            <input type="text" name="sku" placeholder="SKU" required>
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="number" name="price" placeholder="Price" required>
+            <select name="select">
+                <option value="0">Dvd</option>
+                <option value="1">Book</option>
+                <option value="2">Furniture</option>
+            </select>
+            <div class="attributes"></div>
+            <button type="submit" disabled>Create</button>
+        </form>
+    </div>
+</div>

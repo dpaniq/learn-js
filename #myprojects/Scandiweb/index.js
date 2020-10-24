@@ -4,7 +4,7 @@ const path = require('path')
 const bodyParser = require('body-parser')
 const express = require('express')
 const exphbs = require('express-handlebars')
-const appRoute = require('./assets/js/router')
+const appRoute = require('./serverSide/router')
 
 const PORT = process.env.PORT || 3000
 
@@ -16,17 +16,17 @@ const hbs = exphbs.create({
 
 app.engine('hbs', hbs.engine)
 app.set('view engine', 'hbs')
-app.set('views', 'views')
+app.set('views', './serverSide/views')
 
-app.use(bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.json());       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({    // to support URL-encoded bodies
     extended: true
 }));
 
-app.use(express.static(__dirname + '/assets'));
+app.use(express.static(__dirname + '/clientSide/assets'));
 app.use(appRoute)
+
 
 app.listen(PORT, () => {
     console.log(`Server has been started...\nGo to 'http://localhost:${PORT}'`)
 })
-

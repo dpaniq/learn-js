@@ -1,0 +1,175 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+}
+
+header, footer, .container {
+  position: relative;
+  width: 1400px;
+  margin: 2em 0 1em;
+}
+
+body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body header {
+  display: inline-flex;
+  justify-content: space-between;
+  margin: 5em 6em 0;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #ccc;
+}
+body .container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+body .container .product {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 2em 2em;
+  text-align: center;
+  border: 1px solid #ccc;
+  width: 200px;
+  height: 200px;
+}
+body .container .product.green {
+  opacity: 25%;
+  background: url("../img/slash_green.png") repeat;
+  border: 5px inset lime;
+}
+body .container .product.red {
+  opacity: 25%;
+  background: url("../img/slash_red.png") repeat;
+  border: 5px inset red;
+}
+body .container .product:hover {
+  opacity: 25%;
+  background: url("../img/slash_black.png") repeat;
+  border: 5px inset black;
+  cursor: pointer;
+}
+body footer {
+  margin: 5em 6em 0;
+  padding-top: 1em;
+  bottom: 0;
+  height: 100px;
+  border-top: 1px solid #ccc;
+}
+
+.plus {
+  cursor: pointer;
+}
+.plus strong {
+  font-size: 5em;
+  font-weight: bold;
+}
+.plus:hover {
+  background-color: white;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 5;
+  /* Sit on top */
+  margin: auto auto;
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: absolute;
+  background-color: #fefefe;
+  padding: 2em 3em 3em;
+  border: 1px solid #888;
+  width: 20%;
+  left: 50%;
+  top: 50%;
+  margin-left: -10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.modal-content h2 {
+  margin-bottom: 1em;
+}
+.modal-content input, .modal-content select {
+  height: 2em;
+  font-size: 1em;
+  margin-bottom: 0.5em;
+  padding: 0.3em;
+  width: 100%;
+}
+.modal-content button {
+  margin: 1em auto;
+  padding: 0.5em 2em;
+  font-size: medium;
+  font-weight: bold;
+  color: black;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+.modal-content button:hover {
+  background-color: #ccc;
+  color: white;
+}
+.modal-content button[disabled] {
+  border: 1px solid red;
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* The Close Module Button */
+.close {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  width: 30px;
+  height: 30px;
+  color: #aaaaaa;
+  inline-size: 30px;
+  font-size: larger;
+  font-weight: bold;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button[disabled] {
+  border: 1px solid red;
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/*# sourceMappingURL=style.css.map */

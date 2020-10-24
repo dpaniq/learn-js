@@ -1,0 +1,24 @@
+{{> head}}
+
+<body>
+    <header>
+        <h6>Product List</h6>
+        <div>
+            <select>
+                <option value="1">Copy Selected</option>
+                <option value="2">Remove selected</option>
+            </select>
+            <button type="button" disabled>Apply</button>
+        </div>
+
+    </header>
+
+    {{> modal }}
+    <div class="container">
+        {{{ body }}}
+    </div>
+    {{> footer }}
+
+</body>
+
+</html>
